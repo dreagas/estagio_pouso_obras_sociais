@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* ------------ Header de Estoque -------------- */
+
+.header-estoque {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4a90e2;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+.header-estoque h1 {
+    font-size: 1.5rem;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.usuario-info span {
+    margin-right: 8px;
+}
+
+/* ------------ Container do estoque -------------- */
+
+.container-estoque {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* ------------ Seções e Títulos -------------- */
+
+.secao-lista,
+.secao-controles,
+.secao-formulario {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.secao-lista h2,
+.secao-controles h2,
+.secao-formulario h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.secao-lista h2 i,
+.secao-controles h2 i,
+.secao-formulario h2 i {
+    margin-right: 8px;
+}
+
+/* ------------ Tabela de Estoque -------------- */
+#produtos-container {
+    overflow-x: auto;
+}
+
+#estoqueTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#estoqueTable th,
+#estoqueTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+#estoqueTable th {
+    background: #4a90e2;
+    color: #fff;
+    font-weight: 500;
+}
+
+#estoqueTable tr:hover {
+    background: #f1f1f1;
+}
+
+#estoqueTable button {
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+#estoqueTable button:hover {
+    background: #357ab8;
+}
+
+/* ------------ Pop-up de Edição de Produto -------------- */
+
+.popup-editar {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-div {
+    background: #fff;
+    width: 60%;
+    max-width: 600px;
+    min-width: 400px;
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto;
+}
+
+.popup-div h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.popup-div h2 i {
+    margin-right: 8px;
+}
+
+.popup-div form {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-editar,
+.btn-excluir {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-editar {
+    color: #4a90e2;
+}
+
+.btn-editar:hover {
+    background: #1c5596;
+    color: white;
+}
+
+.btn-excluir {
+    color: #dc3545;
+}
+
+.btn-excluir:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* Grupos de inputs espaçados */
+.popup-div .grupo-input,
+.popup-div .grupo-input-duplo {
+    margin-bottom: 18px;
+}
+
+.popup-div .grupo-input-duplo {
+    display: flex;
+    gap: 20px;
+}
+
+/* Botões de ação alinhados */
+.popup-div .botoes-acao {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.fechar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.4rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: #000;
+}
+
+/* ------------ Grupos de movimentação -------------- */
+
+.grupo-controle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    grid-template-areas:
+        "produto quantidade"
+        "buttons buttons";
+    align-items: start;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.grupo-input label {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.grupo-input input,
+.grupo-input select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.botoes-movimento {
+    display: flex;
+    gap: 10px;
+    grid-area: buttons;
+    justify-content: flex-start;
+}
+
+.btn-entrada,
+.btn-saida {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.btn-entrada {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-entrada:hover {
+    background: #1e7e34;
+}
+
+.btn-saida {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-saida:hover {
+    background: #bd2130;
+}
+
+/* ------------ Formulário de Cadastro -------------- */
+
+#form-produto .grupo-input,
+#form-produto .grupo-input-duplo>div {
+    margin-bottom: 15px;
+}
+
+.grupo-input-duplo {
+    display: flex;
+    gap: 20px;
+}
+
+.grupo-input-duplo>div {
+    flex: 1;
+}
+
+#form-produto label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+#form-produto input,
+#form-produto textarea,
+#form-produto select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#form-produto textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primario,
+.btn-secundario {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-primario {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.btn-primario:hover {
+    background-color: #45a049;
+}
+
+.btn-secundario {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secundario:hover {
+    background-color: #d32f2f;
+}
+
+/* ------------ Responsividade (GPT) -------------- */
+
+@media (max-width: 768px) {
+    .secao-controles .grupo-controle {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "produto"
+            "quantidade"
+            "buttons";
+    }
+
+    .popup-div {
+        width: 90%;
+        /* usa quase toda a tela */
+        padding: 20px;
+    }
+
+    .popup-div h2 {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+
+    .popup-div .grupo-input-duplo {
+        flex-direction: column;
+    }
+
+    .popup-div .botoes-acao {
+        flex-direction: column;
+    }
+
+    .popup-div .btn-primario,
+    .popup-div .btn-secundario {
+        width: 100%;
+    }
+}
+
+.secao-controles .botoes-movimento {
+    justify-content: space-between;
+}

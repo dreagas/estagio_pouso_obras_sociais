@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque - Pouso Obras Sociais</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .popup-editar {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-estoque">
+        <h1><i class="fas fa-box-open"></i> Controle de Estoque</h1>
+        <div class="usuario-info">
+            <span>Nome do Funcionário</span>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+
+    <main class="container-estoque">
+        <!-- Listagem de Produtos -->
+        <section class="secao-lista">
+            <h2><i class="fas fa-boxes"></i> Itens em Estoque</h2>
+            <div id="produtos-container">
+                <table id="estoqueTable">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor Unitário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Pop-up de Edição -->
+        <div id="editPopup" class="popup-editar">
+            <div class="popup-div">
+                <span id="fecharPopup" class="fechar">&times;</span>
+                <h2><i class="fas fa-edit"></i> Editar Produto</h2>
+                <form id="editForm">
+                    <div class="grupo-input">
+                        <label for="editNome">Nome do Produto:</label>
+                        <input type="text" id="editNome" name="nome" class="input-cadastro" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="editDescricao">Descrição:</label>
+                        <textarea id="editDescricao" name="descricao"></textarea>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="editCategoria">Categoria:</label>
+                        <select id="editCategoria" name="categoria">
+                            <option value="alimentos">Alimentos</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="pereciveis">Perecíveis</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input-duplo">
+                        <div>
+                            <label for="editQuantidade">Quantidade:</label>
+                            <input type="number" id="editQuantidade" name="quantidade" min="0" required>
+                        </div>
+                        <div>
+                            <label for="editPreco">Preço Unitário (R$):</label>
+                            <input type="number" step="0.01" id="editPreco" class="input-cadastro" required>
+                        </div>
+                    </div>
+
+                    <div class="botoes-acao">
+                        <button type="submit" class="btn-primario">
+                            <i class="fas fa-save"></i> Salvar
+                        </button>
+                        <button type="button" id="cancelEdit" class="btn-secundario">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Controles de Estoque -->
+        <section class="secao-controles">
+            <h2><i class="fas fa-exchange-alt"></i> Movimentação</h2>
+            <div class="grupo-controle">
+                <div class="grupo-input">
+                    <label>Produto:</label>
+                    <select id="selecao-produto"></select>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Quantidade:</label>
+                    <input type="number" id="quantidade-movimento" value="1" min="1">
+                </div>
+
+                <div class="botoes-movimento">
+                    <button onclick="registrarEntrada()" class="btn-entrada">
+                        <i class="fas fa-arrow-down"></i> Entrada
+                    </button>
+                    <button onclick="registrarSaida()" class="btn-saida">
+                        <i class="fas fa-arrow-up"></i> Saída
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Cadastro -->
+        <section class="secao-formulario">
+            <h2><i class="fas fa-plus-circle"></i> Cadastrar Novo Item</h2>
+            <form id="form-produto">
+                <div class="grupo-input">
+                    <label>Nome do Produto:</label>
+                    <input type="text" id="nome-produto" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Descrição:</label>
+                    <textarea id="descricao-produto"></textarea>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Categoria:</label>
+                    <select id="categoria-produto">
+                        <option value="alimentos">Alimentos</option>
+                        <option value="bebidas">Bebidas</option>
+                        <option value="pereciveis">Perecíveis</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input-duplo">
+                    <div>
+                        <label>Quantidade:</label>
+                        <input type="number" id="quantidade-produto" value="0" min="0" required>
+                    </div>
+                    <div>
+                        <label>Preço Unitário (R$):</label>
+                        <input type="number" id="preco-produto" step="0.01" min="0" required>
+                    </div>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="submit" class="btn-primario">
+                        <i class="fas fa-save"></i> Cadastrar
+                    </button>
+                    <button type="button" onclick="limparFormulario()" class="btn-secundario">
+                        <i class="fas fa-eraser"></i> Limpar
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
