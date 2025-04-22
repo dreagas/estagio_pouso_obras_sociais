@@ -98,19 +98,38 @@ body {
     background: #f1f1f1;
 }
 
-#estoqueTable button {
-    background: #4a90e2;
-    color: #fff;
+#estoqueTable .btn-editar,
+#estoqueTable .btn-excluir {
+    background: none;
     border: none;
-    padding: 6px 10px;
-    border-radius: 4px;
+    padding: 8px;
+    margin: 0 5px;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: background 0.2s;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    line-height: 1;
+    border-radius: 30%;
 }
 
-#estoqueTable button:hover {
-    background: #357ab8;
+#estoqueTable .btn-editar {
+    color: #4a90e2;
+}
+
+#estoqueTable .btn-editar:hover {
+    color: white;
+    background: #4a90e2;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+#estoqueTable .btn-excluir {
+    color: #dc3545;
+}
+
+#estoqueTable .btn-excluir:hover {
+    color: white;
+    background: #dc3545;
+    border-radius: 50%;
 }
 
 /* ------------ Pop-up de Edição de Produto -------------- */
@@ -154,35 +173,6 @@ body {
 .popup-div form {
     display: flex;
     flex-direction: column;
-}
-
-.btn-editar,
-.btn-excluir {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    border-radius: 4px;
-    transition: all 0.3s;
-}
-
-.btn-editar {
-    color: #4a90e2;
-}
-
-.btn-editar:hover {
-    background: #1c5596;
-    color: white;
-}
-
-.btn-excluir {
-    color: #dc3545;
-}
-
-.btn-excluir:hover {
-    background: #dc3545;
-    color: white;
 }
 
 /* Grupos de inputs espaçados */

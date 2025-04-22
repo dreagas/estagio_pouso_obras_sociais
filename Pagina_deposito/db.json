@@ -1,20 +1,20 @@
 {
   "produtos": [
     {
-      "id": "1bcd",
-      "nome": "Arroz",
-      "descricao": "5kg",
-      "categoria": "alimentos",
-      "quantidade": 13,
-      "preco": 7.5
-    },
-    {
       "id": "327b",
       "nome": "Feijão",
       "descricao": "1kg",
       "categoria": "alimentos",
-      "quantidade": 21,
+      "quantidade": 22,
       "preco": 9.5
+    },
+    {
+      "id": "02eb",
+      "nome": "Arroz",
+      "descricao": "5kg",
+      "categoria": "alimentos",
+      "quantidade": 10,
+      "preco": 9
     }
   ]
 }
