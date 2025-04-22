@@ -10,8 +10,25 @@ let editandoId = null;
 let produtoSelecionado = null;
 
 // Funções de controle do popup
-const mostrarPopup = () => editPopup.style.display = "flex";
-const esconderPopup = () => editPopup.style.display = "none";
+const mostrarPopup = () => {
+    editPopup.classList.remove("popup-editar");
+    Object.assign(editPopup.style, {
+        display: 'flex',
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100vw',
+        height: '100vh',
+        background: 'rgba(0, 0, 0, 0.5)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: '9999'
+    });
+};
+
+const esconderPopup = () => {
+    editPopup.style.display = 'none';
+};
 
 // Carregar produtos
 async function carregarProdutos() {
@@ -25,7 +42,7 @@ async function carregarProdutos() {
         <td>${produto.nome}</td>
         <td>${produto.quantidade}</td>
         <td>R$ ${Number(produto.preco || produto.valorunitario).toFixed(2)}</td>
-        <td>
+       <td>
             <button class="btn-editar" data-id="${produto.id}">
                 <i class="fas fa-pencil-alt"></i>
             </button>
@@ -79,13 +96,18 @@ tbody.addEventListener("click", async (e) => {
     if (btn.classList.contains("btn-editar")) {
         editandoId = id;
         const res = await fetch(`http://localhost:3000/produtos/${id}`);
+        if (!res.ok) {
+            alert("Produto não encontrado!");
+            return;
+        }
         const produto = await res.json();
 
+        console.log("Produto carregado para edição:", produto);
         document.getElementById("editNome").value = produto.nome;
         document.getElementById("editDescricao").value = produto.descricao || '';
         document.getElementById("editCategoria").value = produto.categoria || 'alimentos';
         document.getElementById("editQuantidade").value = produto.quantidade;
-        document.getElementById("editPreco").value = produto.preco || produto.valorunitario;
+        document.getElementById("editPreco").value = produto.preco || produto.valorunitario || 0;
 
         mostrarPopup();
     }

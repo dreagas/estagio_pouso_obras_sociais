@@ -98,6 +98,21 @@ body {
     background: #f1f1f1;
 }
 
+#estoqueTable th:nth-child(4),
+#estoqueTable td:nth-child(4) {
+    text-align: center;
+    width: 150px;
+    padding: 12px 5px !important;
+    /* Reduza o padding lateral */
+}
+
+#estoqueTable td:nth-child(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 #estoqueTable .btn-editar,
 #estoqueTable .btn-excluir {
     background: none;
@@ -158,6 +173,24 @@ body {
     position: relative;
     overflow-y: auto;
 }
+
+.popup-div input,
+.popup-div textarea,
+.popup-div select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.popup-div textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
 
 .popup-div h2 {
     font-size: 1.4rem;
@@ -248,7 +281,7 @@ body {
 .btn-entrada,
 .btn-saida {
     flex: 1;
-    padding: 10px 0;
+    padding: 15px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -257,12 +290,12 @@ body {
 }
 
 .btn-entrada {
-    background: #28a745;
+    background: #2793ff;
     color: #fff;
 }
 
 .btn-entrada:hover {
-    background: #1e7e34;
+    background: #2f7ba7;
 }
 
 .btn-saida {
@@ -319,7 +352,7 @@ body {
 .btn-primario,
 .btn-secundario {
     flex: 1;
-    padding: 10px 0;
+    padding: 15px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -328,24 +361,24 @@ body {
 }
 
 .btn-primario {
-    background-color: #4CAF50;
+    background-color: #2793ff;
     color: white;
     border: none;
-    padding: 6px 10px;
+    padding: 15px 10px;
     cursor: pointer;
     border-radius: 4px;
     margin-right: 5px;
 }
 
 .btn-primario:hover {
-    background-color: #45a049;
+    background-color: #2f7ba7;
 }
 
 .btn-secundario {
     background-color: #f44336;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 15px 12px;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.2s ease;
@@ -356,8 +389,62 @@ body {
 }
 
 /* ------------ Responsividade (GPT) -------------- */
+/* --------- Responsividade Mobile (até 600px) --------- */
+@media (max-width: 600px) {
 
-@media (max-width: 768px) {
+    /* Ajusta padding geral */
+    .container-estoque {
+        padding: 0 10px;
+    }
+
+    /* Header: empilha elementos */
+    .header-estoque {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-estoque .usuario-info {
+        margin-top: 10px;
+    }
+
+    /* Seções: largura total e margens reduzidas */
+    .secao-lista,
+    .secao-formulario,
+    .secao-controles {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* Tabela: fonte menor e células mais compactas */
+    #estoqueTable th,
+    #estoqueTable td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    #estoqueTable th:nth-child(4),
+    #estoqueTable td:nth-child(4) {
+        width: auto;
+        padding: 8px 5px;
+    }
+
+    /* Formulário de cadastro: inputs full‑width já vêm por padrão */
+    #form-produto .grupo-input-duplo {
+        flex-direction: column;
+    }
+
+    #form-produto .grupo-input-duplo>div {
+        width: 100%;
+    }
+
+    /* Pop‑up de Edição: ocupa quase toda a tela */
+    .popup-div {
+        width: 90%;
+        min-width: auto;
+        padding: 20px;
+    }
+
+    /* Movimentação: empilha controles */
     .secao-controles .grupo-controle {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -365,32 +452,33 @@ body {
             "quantidade"
             "buttons";
     }
+}
+
+/* --------- Responsividade Pequenas Tablets (601px a 900px) --------- */
+@media (min-width: 601px) and (max-width: 900px) {
+    .container-estoque {
+        max-width: 700px;
+        padding: 0 15px;
+    }
+
+    .secao-lista,
+    .secao-formulario,
+    .secao-controles {
+        padding: 18px;
+    }
 
     .popup-div {
-        width: 90%;
-        /* usa quase toda a tela */
-        padding: 20px;
-    }
-
-    .popup-div h2 {
-        font-size: 1.2rem;
-        margin-bottom: 16px;
-    }
-
-    .popup-div .grupo-input-duplo {
-        flex-direction: column;
-    }
-
-    .popup-div .botoes-acao {
-        flex-direction: column;
-    }
-
-    .popup-div .btn-primario,
-    .popup-div .btn-secundario {
-        width: 100%;
+        width: 80%;
+        min-width: 360px;
     }
 }
 
-.secao-controles .botoes-movimento {
-    justify-content: space-between;
+/* --------- Ajustes gerais fluidos --------- */
+/* Faz imagens, vídeos, tabelas rolarem horizontalmente se necessário */
+img,
+video,
+#produtos-container {
+    max-width: 100%;
+    height: auto;
+    overflow-x: auto;
 }
