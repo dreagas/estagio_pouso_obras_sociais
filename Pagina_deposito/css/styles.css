@@ -11,6 +11,21 @@ body {
     line-height: 1.5;
 }
 
+.voltar-inicio {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+    font-weight: 300;
+}
+
+.voltar-inicio:hover {
+    color: #2f7ba7;
+    font-weight: 600;
+}
+
 /* ------------ Header de Estoque -------------- */
 
 .header-estoque {
@@ -208,7 +223,6 @@ body {
     flex-direction: column;
 }
 
-/* Grupos de inputs espaçados */
 .popup-div .grupo-input,
 .popup-div .grupo-input-duplo {
     margin-bottom: 18px;
@@ -219,7 +233,6 @@ body {
     gap: 20px;
 }
 
-/* Botões de ação alinhados */
 .popup-div .botoes-acao {
     display: flex;
     gap: 12px;
