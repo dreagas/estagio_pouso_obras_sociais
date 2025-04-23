@@ -14,36 +14,126 @@
     <header class="header-estoque">
         <h1><i class="fas fa-prescription-bottle"></i> Controle Farmacêutico</h1>
         <div class="usuario-info">
-            <span>Farmacêutico Responsável</span>
+            <span>Nome do Funcionário</span>
             <i class="fas fa-user-circle"></i>
         </div>
     </header>
+    <div class="container-estoque">
+        <main class="container-estoque">
+            <a href="index.html" class="voltar-inicio">
+                <i class="fa-solid fa-left-long"></i> Voltar para a Página de Funcionário
+            </a>
 
-    <main class="container-estoque">
-        <a href="index.html" class="voltar-inicio">
-            <i class="fa-solid fa-left-long"></i> Voltar para o Painel Principal
-        </a>
+            <!-- Seção de Pesquisa -->
+            <section class="secao-pesquisa">
+                <h2><i class="fas fa-search"></i> Pesquisar Medicamentos</h2>
+                <div class="grupo-pesquisa">
+                    <input type="text" id="pesquisa" placeholder="Digite nome, código ou DCB..." class="input-pesquisa">
+                    <select id="filtro-ordem" class="seletor-ordem">
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
+                        <option value="estoque">Quantidade em Estoque</option>
+                    </select>
+                </div>
+            </section>
 
-        <!-- Seção de Pesquisa -->
-        <section class="secao-pesquisa">
-            <h2><i class="fas fa-search"></i> Pesquisar Medicamentos</h2>
-            <div class="grupo-pesquisa">
-                <input type="text" id="pesquisa" placeholder="Digite nome, código ou DCB..." class="input-pesquisa">
-                <select id="filtro-ordem" class="seletor-ordem">
-                    <option value="az">A-Z</option>
-                    <option value="za">Z-A</option>
-                    <option value="estoque">Quantidade em Estoque</option>
-                </select>
-            </div>
-        </section>
+            <!-- Listagem de Medicamentos em Cards -->
+            <section class="secao-lista">
+                <h2><i class="fas fa-pills"></i> Medicamentos em Estoque</h2>
+                <div id="produtos-container" class="grid-medicamentos">
+                    <!-- Cards serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
 
-        <!-- Listagem de Medicamentos em Cards -->
-        <section class="secao-lista">
-            <h2><i class="fas fa-pills"></i> Medicamentos em Estoque</h2>
-            <div id="produtos-container" class="grid-medicamentos">
-                <!-- Cards serão inseridos aqui via JavaScript -->
-            </div>
-        </section>
+            <!-- Controles de Movimentação -->
+            <section class="secao-controles">
+                <h2><i class="fas fa-exchange-alt"></i> Movimentação</h2>
+                <div class="grupo-controle">
+                    <div class="grupo-input">
+                        <label>Medicamento:</label>
+                        <select id="selecao-produto"></select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>Quantidade:</label>
+                        <input type="number" id="quantidade-movimento" value="1" min="1">
+                    </div>
+
+                    <div class="botoes-movimento">
+                        <button onclick="registrarEntrada()" class="btn-entrada">
+                            <i class="fas fa-arrow-down"></i> Entrada
+                        </button>
+                        <button onclick="registrarSaida()" class="btn-saida">
+                            <i class="fas fa-arrow-up"></i> Saída
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulário de Cadastro -->
+            <section class="secao-formulario">
+                <h2><i class="fas fa-plus-circle"></i> Cadastrar Novo Medicamento</h2>
+                <form id="form-produto">
+                    <div class="grupo-input">
+                        <label>Nome Comercial:</label>
+                        <input type="text" id="nome-produto" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>Nome Comercial:</label>
+                        <input type="text" id="nome-produto" required>
+                    </div>
+
+                    <div class="grupo-input-duplo">
+                        <div>
+                            <label>Concentração:</label>
+                            <input type="text" id="concentracao" required>
+                        </div>
+                        <div>
+                            <label>Unidade:</label>
+                            <select id="unidade">
+                                <option value="Caixa">Caixa</option>
+                                <option value="Ampola">Ampola</option>
+                                <option value="Frasco">Frasco</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>Descrição:</label>
+                        <textarea id="descricao" rows="3" required></textarea>
+                    </div>
+
+                    <div class="grupo-input-duplo">
+                        <div>
+                            <label>Classe Terapêutica:</label>
+                            <input type="text" id="classe" required>
+                        </div>
+                        <div>
+                            <label>Código de Barras:</label>
+                            <input type="text" id="codigoBarras" required>
+                        </div>
+                    </div>
+
+                    <div class="grupo-input controle-especial-popup toggle-switch">
+                        <input type="checkbox" id="cadastroControleEspecial">
+                        <label for="cadastroControleEspecial">
+                            <span class="switch-slider"></span>
+                            <span class="switch-text">Controle Especial</span>
+                        </label>
+                    </div>
+
+                    <div class="botoes-acao">
+                        <button type="submit" class="btn-primario">
+                            <i class="fas fa-save"></i> Cadastrar
+                        </button>
+                        <button type="button" onclick="limparFormulario()" class="btn-secundario">
+                            <i class="fas fa-eraser"></i> Limpar
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
 
         <!-- Pop-up de Edição -->
         <div id="editPopup" class="popup-editar">
@@ -93,9 +183,12 @@
                         </div>
                     </div>
 
-                    <div class="grupo-input">
-                        <label for="editControleEspecial">Controle Especial:</label>
+                    <div class="grupo-input controle-especial-popup toggle-switch">
                         <input type="checkbox" id="editControleEspecial">
+                        <label for="editControleEspecial">
+                            <span class="switch-slider"></span>
+                            <span class="switch-text">Controle Especial</span>
+                        </label>
                     </div>
 
                     <div class="botoes-acao">
@@ -109,93 +202,7 @@
                 </form>
             </div>
         </div>
-
-        <!-- Controles de Movimentação -->
-        <section class="secao-controles">
-            <h2><i class="fas fa-exchange-alt"></i> Movimentação</h2>
-            <div class="grupo-controle">
-                <div class="grupo-input">
-                    <label>Medicamento:</label>
-                    <select id="selecao-produto"></select>
-                </div>
-
-                <div class="grupo-input">
-                    <label>Quantidade:</label>
-                    <input type="number" id="quantidade-movimento" value="1" min="1">
-                </div>
-
-                <div class="botoes-movimento">
-                    <button onclick="registrarEntrada()" class="btn-entrada">
-                        <i class="fas fa-arrow-down"></i> Entrada
-                    </button>
-                    <button onclick="registrarSaida()" class="btn-saida">
-                        <i class="fas fa-arrow-up"></i> Saída
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Formulário de Cadastro -->
-        <section class="secao-formulario">
-            <h2><i class="fas fa-plus-circle"></i> Cadastrar Novo Medicamento</h2>
-            <form id="form-produto">
-                <div class="grupo-input">
-                    <label>Nome Comercial:</label>
-                    <input type="text" id="nome-produto" required>
-                </div>
-
-                <div class="grupo-input">
-                    <label>Nome Comercial:</label>
-                    <input type="text" id="nome-produto" required>
-                </div>
-
-                <div class="grupo-input-duplo">
-                    <div>
-                        <label>Concentração:</label>
-                        <input type="text" id="concentracao" required>
-                    </div>
-                    <div>
-                        <label>Unidade:</label>
-                        <select id="unidade">
-                            <option value="Caixa">Caixa</option>
-                            <option value="Ampola">Ampola</option>
-                            <option value="Frasco">Frasco</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grupo-input">
-                    <label>Descrição:</label>
-                    <textarea id="descricao" rows="3" required></textarea>
-                </div>
-
-                <div class="grupo-input-duplo">
-                    <div>
-                        <label>Classe Terapêutica:</label>
-                        <input type="text" id="classe" required>
-                    </div>
-                    <div>
-                        <label>Código de Barras:</label>
-                        <input type="text" id="codigoBarras" required>
-                    </div>
-                </div>
-
-                <div class="grupo-input controle-especial">
-                    <input type="checkbox" id="controleEspecial">
-                    <label for="controleEspecial">Controle Especial</label>
-                </div>
-
-                <div class="botoes-acao">
-                    <button type="submit" class="btn-primario">
-                        <i class="fas fa-save"></i> Cadastrar
-                    </button>
-                    <button type="button" onclick="limparFormulario()" class="btn-secundario">
-                        <i class="fas fa-eraser"></i> Limpar
-                    </button>
-                </div>
-            </form>
-        </section>
-    </main>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

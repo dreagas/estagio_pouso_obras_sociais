@@ -74,8 +74,8 @@ function atualizarExibicaoProdutos(produtos) {
     `).join("");
 
     // Adiciona altura fixa e scroll
-    produtosContainer.style.height = '700px';
-    produtosContainer.style.overflowY = 'auto';
+    produtosContainer.style.height = 'auto'; // alterado: altura dinâmica para permitir mais espaço
+    produtosContainer.style.overflowY = 'visible'; // alterado: overflow dinâmico
 }
 
 function atualizarSelectMovimentacao(produtos) {
@@ -121,7 +121,7 @@ formCadastro.addEventListener("submit", async (e) => {
         descricao: document.getElementById("descricao").value,
         classe: document.getElementById("classe").value,
         codigoBarras: document.getElementById("codigoBarras").value,
-        controleEspecial: document.getElementById("controleEspecial").checked,
+        controleEspecial: document.getElementById("cadastroControleEspecial").checked,
         quantidade: 0 // Inicia com estoque zero
     };
 

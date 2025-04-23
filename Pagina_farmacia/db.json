@@ -8,7 +8,7 @@
       "concentracao": "100mg/mL",
       "apresentacao": "Ampola 10ml",
       "classe": "Analgésico Opioide",
-      "quantidade": 14,
+      "quantidade": 17,
       "unidade": "Ampola",
       "controleEspecial": true,
       "codigoBarras": "7896212420285"
@@ -27,17 +27,15 @@
       "codigoBarras": "7891234567890"
     },
     {
-      "id": "327d",
-      "codigo": "938212",
       "nome": "Paracetamol 750mg",
-      "descricao": "Medicamento utilizado para tratamento de dores leves a moderadas e febre.",
       "concentracao": "750mg",
-      "apresentacao": "Comprimido",
+      "unidade": "Caixa",
+      "dcb": "40028922",
       "classe": "Analgésico",
-      "quantidade": 200,
-      "unidade": "Comprimido",
+      "registroMS": "40028922",
+      "codigoBarras": "7891234567891",
       "controleEspecial": false,
-      "codigoBarras": "7891234567891"
+      "id": "327d"
     },
     {
       "id": "327e",
@@ -103,6 +101,17 @@
       "unidade": "Ampola",
       "controleEspecial": true,
       "codigoBarras": "7891234567896"
+    },
+    {
+      "id": "b636",
+      "nome": "AQUELES PERTE",
+      "concentracao": "102301230",
+      "unidade": "Caixa",
+      "descricao": "12301231239",
+      "classe": "19239123921",
+      "codigoBarras": "129312939213",
+      "controleEspecial": true,
+      "quantidade": 2
     }
   ]
 }

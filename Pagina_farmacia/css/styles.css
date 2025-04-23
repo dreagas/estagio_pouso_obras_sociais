@@ -54,9 +54,16 @@ body {
 /* ------------ Container do estoque -------------- */
 
 .container-estoque {
-    max-width: 1000px;
+    max-width: 1600px;
     margin: 20px auto;
     padding: 0 20px;
+}
+
+.container-estoque>*:not(header) {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 /* ------------ Seções e Títulos -------------- */
@@ -64,8 +71,11 @@ body {
 .secao-lista,
 .secao-controles,
 .secao-formulario {
-    margin: -5px 20px 20px;
-    padding: 15px 20px 20px;
+    margin: 15px 0;
+    padding: 20px;
+    margin-top: 0;
+    padding-top: 15px;
+    box-sizing: border-box;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     background: #ffffff;
@@ -94,6 +104,8 @@ body {
     background: #ffffff;
     padding: 20px 20px 15px;
     margin: 0 20px;
+    margin-bottom: -10px;
+    padding-bottom: 25px;
     border-radius: 8px 8px 0 0;
     border-bottom: none;
     position: relative;
@@ -165,12 +177,19 @@ body {
 }
 
 .card-medicamento {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    border-left: 4px solid #4a90e2;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-left: 2px solid #4a90e2;
+    transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.card-medicamento:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
@@ -195,6 +214,12 @@ body {
     justify-content: space-between;
     margin: 12px 0;
     font-size: 0.9em;
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.info-item:last-child {
+    border-bottom: none;
 }
 
 .info-label {
@@ -209,10 +234,11 @@ body {
 }
 
 .controle-especial {
+    background: #fff5f5;
     color: #dc3545;
     font-weight: bold;
     border: 1px solid #dc3545;
-    padding: 8px;
+    padding: 10px;
     border-radius: 4px;
     margin-top: 15px;
     text-align: center;
@@ -242,32 +268,101 @@ body {
     display: flex;
     gap: 10px;
     margin-top: 15px;
+    padding-top: 15px;
     border-top: 1px solid #eee;
-    padding-top: 10px;
+}
+
+.btn-editar {
+    background: #4a90e2;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-editar:hover {
+    background: #357abd;
+    box-shadow: 0 2px 6px rgba(74, 144, 226, 0.3);
+}
+
+.btn-excluir {
+    background: #dc3545;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-excluir:hover {
+    background: #bb2d3b;
+    box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
 }
 
 /* ------------ Pop-up de Edição de Produto -------------- */
 
-.popup-editar {
-    display: none !important;
-    position: fixed;
-    top: 0;
-    left: 0;
+#editPopup {
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    align-items: center;
+    max-width: none;
+    margin: 0;
+    inset: 0;
+    display: flex;
+    /* deve estar visível via JS */
     justify-content: center;
-    z-index: 9999;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1000;
 }
 
-.popup-div {
-    background: white;
-    width: 90%;
+#editPopup .popup-div {
+    margin: 0 auto;
+}
+
+#editPopup .grupo-input.grupo-controle-especial {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.popup-editar {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
+}
+
+.popup-editar .toggle-switch {
+    margin: 20px 0 15px;
+}
+
+.popup-editar .popup-div {
+    background: #fff;
+    width: 60%;
     max-width: 600px;
+    min-width: 320px;
+    max-height: 90vh;
     padding: 30px;
-    border-radius: 8px;
-    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    margin: 0;
 }
 
 .popup-div input,
@@ -320,6 +415,68 @@ body {
     justify-content: flex-end;
 }
 
+.toggle-switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.toggle-switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-switch .switch-slider {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: #e0e0e0;
+    border-radius: 13px;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch .switch-slider::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.toggle-switch .switch-text {
+    font-weight: 500;
+    color: #333;
+}
+
+.toggle-switch input:checked+label .switch-slider {
+    background: #2793ff;
+}
+
+.toggle-switch input[type="checkbox"]:checked+label .switch-slider::before {
+    transform: translateX(24px);
+}
+
+.toggle-switch input[type="checkbox"]:focus+label .switch-slider {
+    box-shadow: 0 0 0 3px rgba(39, 147, 255, 0.5);
+}
+
 .fechar {
     position: absolute;
     top: 12px;
@@ -358,6 +515,7 @@ body {
 }
 
 .grupo-input input,
+.grupo-input input:not([type="checkbox"]),
 .grupo-input select {
     padding: 8px 10px;
     border: 1px solid #ccc;
@@ -406,6 +564,41 @@ body {
 #form-produto .grupo-input,
 #form-produto .grupo-input-duplo>div {
     margin-bottom: 15px;
+}
+
+#form-produto .toggle-switch {
+    margin: 15px 0;
+}
+
+#form-produto .grupo-input-duplo>div {
+    flex: 1;
+}
+
+#form-produto .toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    padding: 0;
+    width: auto;
+    position: relative;
+}
+
+#form-produto .toggle-switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#form-produto .toggle-switch label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
 }
 
 .grupo-input-duplo {
@@ -480,99 +673,4 @@ body {
 
 .btn-secundario:hover {
     background-color: #d32f2f;
-}
-
-/* ------------ Responsividade (GPT) -------------- */
-/* --------- Responsividade Mobile (até 600px) --------- */
-@media (max-width: 600px) {
-
-    /* Ajusta padding geral */
-    .container-estoque {
-        padding: 0 10px;
-    }
-
-    /* Header: empilha elementos */
-    .header-estoque {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header-estoque .usuario-info {
-        margin-top: 10px;
-    }
-
-    /* Seções: largura total e margens reduzidas */
-    .secao-lista,
-    .secao-formulario,
-    .secao-controles {
-        padding: 15px;
-        margin-bottom: 15px;
-    }
-
-    /* Tabela: fonte menor e células mais compactas */
-    #estoqueTable th,
-    #estoqueTable td {
-        padding: 8px 10px;
-        font-size: 0.9rem;
-    }
-
-    #estoqueTable th:nth-child(4),
-    #estoqueTable td:nth-child(4) {
-        width: auto;
-        padding: 8px 5px;
-    }
-
-    /* Formulário de cadastro: inputs full‑width já vêm por padrão */
-    #form-produto .grupo-input-duplo {
-        flex-direction: column;
-    }
-
-    #form-produto .grupo-input-duplo>div {
-        width: 100%;
-    }
-
-    /* Pop‑up de Edição: ocupa quase toda a tela */
-    .popup-div {
-        width: 90%;
-        min-width: auto;
-        padding: 20px;
-    }
-
-    /* Movimentação: empilha controles */
-    .secao-controles .grupo-controle {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "produto"
-            "quantidade"
-            "buttons";
-    }
-}
-
-/* --------- Responsividade Pequenas Tablets (601px a 900px) --------- */
-@media (min-width: 601px) and (max-width: 900px) {
-    .container-estoque {
-        max-width: 700px;
-        padding: 0 15px;
-    }
-
-    .secao-lista,
-    .secao-formulario,
-    .secao-controles {
-        padding: 18px;
-    }
-
-    .popup-div {
-        width: 80%;
-        min-width: 360px;
-    }
-}
-
-/* --------- Ajustes gerais fluidos --------- */
-/* Faz imagens, vídeos, tabelas rolarem horizontalmente se necessário */
-img,
-video,
-#produtos-container {
-    max-width: 100%;
-    height: auto;
-    overflow-x: auto;
 }
