@@ -336,16 +336,15 @@ body {
 }
 
 .popup-editar {
-    display: none;
     position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: auto;
+    overflow-y: auto;
+    padding: 20px 0;
 }
 
 .popup-editar .toggle-switch {
@@ -354,7 +353,7 @@ body {
 
 .popup-editar .popup-div {
     background: #fff;
-    width: 60%;
+    width: 90%;
     max-width: 600px;
     min-width: 320px;
     max-height: 90vh;
@@ -673,4 +672,184 @@ body {
 
 .btn-secundario:hover {
     background-color: #d32f2f;
+}
+
+/* =============== RESPONSIVIDADE (GPT =============== */
+@media (max-width: 1200px) {
+    .container-estoque {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .grid-medicamentos {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .secao-controles .grupo-controle {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "produto"
+            "quantidade"
+            "buttons";
+    }
+
+    .card-medicamento {
+        padding: 15px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-estoque {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .botoes-movimento {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .secao-controles .grupo-controle {
+        grid-template-areas:
+            "produto"
+            "quantidade"
+            "buttons";
+        grid-gap: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grupo-input {
+        width: 100%;
+    }
+
+    .botoes-movimento {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-entrada,
+    .btn-saida {
+        width: 100% !important;
+        margin: 0;
+        justify-content: center;
+    }
+
+    #quantidade-movimento {
+        width: 100%;
+    }
+
+    .usuario-info {
+        margin-top: 10px;
+    }
+
+    .grupo-pesquisa {
+        grid-template-columns: 1fr;
+    }
+
+    .seletor-ordem {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .popup-div {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .voltar-inicio {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-codigo-barras {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .btn-editar,
+    .btn-excluir {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card-acoes {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botoes-movimento {
+        flex-direction: column;
+    }
+
+    .btn-entrada,
+    .btn-saida {
+        width: 100%;
+    }
+
+    .popup-div .grupo-input-duplo {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-medicamentos {
+        grid-template-columns: 1fr;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info-value {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .secao-formulario,
+    .secao-controles {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .header-estoque h1 {
+        font-size: 1.3rem;
+    }
+
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .secao-pesquisa h2,
+    .secao-lista h2,
+    .secao-controles h2,
+    .secao-formulario h2 {
+        font-size: 1.1rem;
+    }
 }

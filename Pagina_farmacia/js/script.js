@@ -198,6 +198,30 @@ editForm.addEventListener("submit", async (e) => {
 });
 
 // Movimentação de estoque
+function atualizarSelectMovimentacao(produtos) {
+    selectProduto.innerHTML = produtos.map(p =>
+        `<option value="${p.id}">${p.nome} (${p.id}) - Estoque: ${p.quantidade}</option>`
+    ).join("");
+
+    // Forçar atualização imediata do select
+    selectProduto.dispatchEvent(new Event('change'));
+}
+
+async function carregarProdutos() {
+    try {
+        const res = await fetch("http://localhost:3000/produtos");
+        todosProdutos = await res.json();
+
+        // Garantir ordenação A-Z antes de atualizar
+        todosProdutos.sort((a, b) => a.nome.localeCompare(b.nome));
+
+        atualizarExibicaoProdutos(todosProdutos);
+        atualizarSelectMovimentacao(todosProdutos); // Chamada reforçada
+    } catch (error) {
+        console.error("Erro ao carregar produtos:", error);
+    }
+}
+
 async function registrarMovimento(tipo) {
     const produtoId = selectProduto.value;
     const quantidade = Number(document.getElementById("quantidade-movimento").value);
