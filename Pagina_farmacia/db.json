@@ -1,0 +1,108 @@
+{
+  "produtos": [
+    {
+      "id": "327b",
+      "codigo": "937710",
+      "nome": "Tramadol (Cloridrato) 100mg",
+      "descricao": "Analgésico opioide utilizado para alívio de dores moderadas a intensas.",
+      "concentracao": "100mg/mL",
+      "apresentacao": "Ampola 10ml",
+      "classe": "Analgésico Opioide",
+      "quantidade": 14,
+      "unidade": "Ampola",
+      "controleEspecial": true,
+      "codigoBarras": "7896212420285"
+    },
+    {
+      "id": "327c",
+      "codigo": "938211",
+      "nome": "Dipirona Sódica 500mg",
+      "descricao": "Analgésico e antitérmico indicado para alívio da dor e febre.",
+      "concentracao": "500mg/mL",
+      "apresentacao": "Ampola 2ml",
+      "classe": "Analgésico / Antitérmico",
+      "quantidade": 120,
+      "unidade": "Ampola",
+      "controleEspecial": false,
+      "codigoBarras": "7891234567890"
+    },
+    {
+      "id": "327d",
+      "codigo": "938212",
+      "nome": "Paracetamol 750mg",
+      "descricao": "Medicamento utilizado para tratamento de dores leves a moderadas e febre.",
+      "concentracao": "750mg",
+      "apresentacao": "Comprimido",
+      "classe": "Analgésico",
+      "quantidade": 200,
+      "unidade": "Comprimido",
+      "controleEspecial": false,
+      "codigoBarras": "7891234567891"
+    },
+    {
+      "id": "327e",
+      "codigo": "938213",
+      "nome": "Diazepam 10mg",
+      "descricao": "Ansiolítico utilizado para controle da ansiedade e espasmos musculares.",
+      "concentracao": "10mg/2mL",
+      "apresentacao": "Ampola 2ml",
+      "classe": "Ansiolítico / Benzodiazepínico",
+      "quantidade": 50,
+      "unidade": "Ampola",
+      "controleEspecial": true,
+      "codigoBarras": "7891234567892"
+    },
+    {
+      "id": "327f",
+      "codigo": "938214",
+      "nome": "Amoxicilina 500mg",
+      "descricao": "Antibiótico da classe penicilina usado no tratamento de infecções bacterianas.",
+      "concentracao": "500mg",
+      "apresentacao": "Cápsula",
+      "classe": "Antibiótico",
+      "quantidade": 179,
+      "unidade": "Cápsula",
+      "controleEspecial": false,
+      "codigoBarras": "7891234567893"
+    },
+    {
+      "id": "327g",
+      "codigo": "938215",
+      "nome": "Furosemida 40mg",
+      "descricao": "Diurético utilizado para controle de edemas e hipertensão.",
+      "concentracao": "40mg",
+      "apresentacao": "Comprimido",
+      "classe": "Diurético",
+      "quantidade": 300,
+      "unidade": "Comprimido",
+      "controleEspecial": false,
+      "codigoBarras": "7891234567894"
+    },
+    {
+      "id": "327h",
+      "codigo": "938216",
+      "nome": "Metformina 850mg",
+      "descricao": "Medicamento usado no controle da diabetes tipo 2.",
+      "concentracao": "850mg",
+      "apresentacao": "Comprimido",
+      "classe": "Antidiabético oral",
+      "quantidade": 220,
+      "unidade": "Comprimido",
+      "controleEspecial": false,
+      "codigoBarras": "7891234567895"
+    },
+    {
+      "id": "327i",
+      "codigo": "938217",
+      "nome": "Haloperidol 5mg/mL",
+      "descricao": "Antipsicótico utilizado para tratamento de agitação psicomotora e esquizofrenia.",
+      "concentracao": "5mg/mL",
+      "apresentacao": "Ampola 1mL",
+      "classe": "Antipsicótico",
+      "quantidade": 60,
+      "unidade": "Ampola",
+      "controleEspecial": true,
+      "codigoBarras": "7891234567896"
+    }
+  ]
+}

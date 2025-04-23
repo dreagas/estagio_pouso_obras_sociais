@@ -1,0 +1,578 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.5;
+}
+
+.voltar-inicio {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+    font-weight: 300;
+}
+
+.voltar-inicio:hover {
+    color: #2f7ba7;
+    font-weight: 600;
+}
+
+/* ------------ Header de Estoque -------------- */
+
+.header-estoque {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4a90e2;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+.header-estoque h1 {
+    font-size: 1.5rem;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.usuario-info span {
+    margin-right: 8px;
+}
+
+/* ------------ Container do estoque -------------- */
+
+.container-estoque {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* ------------ Seções e Títulos -------------- */
+
+.secao-lista,
+.secao-controles,
+.secao-formulario {
+    margin: -5px 20px 20px;
+    padding: 15px 20px 20px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    position: relative;
+    top: -5px;
+}
+
+.secao-lista h2,
+.secao-controles h2,
+.secao-formulario h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.secao-lista h2 i,
+.secao-controles h2 i,
+.secao-formulario h2 i {
+    margin-right: 8px;
+}
+
+/* ------------ Seção de Pesquisa -------------- */
+
+.secao-pesquisa {
+    background: #ffffff;
+    padding: 20px 20px 15px;
+    margin: 0 20px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+    position: relative;
+    z-index: 1;
+}
+
+.grupo-pesquisa {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 15px;
+    align-items: center;
+}
+
+.input-pesquisa {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.seletor-ordem {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+}
+
+.input-pesquisa {
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.input-pesquisa:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+}
+
+.seletor-ordem {
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    background: #f8f9fa;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.seletor-ordem:hover {
+    border-color: #4a90e2;
+    background: #ffffff;
+}
+
+
+/* ------------ Tabela de medicamentos -------------- */
+
+.grid-medicamentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px 0 0;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.card-medicamento {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-left: 4px solid #4a90e2;
+    position: relative;
+}
+
+.card-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.card-codigo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4a90e2;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 0.9em;
+}
+
+.info-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.info-value {
+    color: #333;
+    text-align: right;
+    max-width: 60%;
+}
+
+.controle-especial {
+    color: #dc3545;
+    font-weight: bold;
+    border: 1px solid #dc3545;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.controle-especial input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.controle-especial label {
+    margin: 0;
+    font-weight: 500;
+}
+
+#descricao {
+    min-height: 80px;
+    padding: 10px;
+    line-height: 1.4;
+}
+
+.card-acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+/* ------------ Pop-up de Edição de Produto -------------- */
+
+.popup-editar {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-div {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.popup-div input,
+.popup-div textarea,
+.popup-div select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.popup-div textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+
+.popup-div h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.popup-div h2 i {
+    margin-right: 8px;
+}
+
+.popup-div form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-div .grupo-input,
+.popup-div .grupo-input-duplo {
+    margin-bottom: 18px;
+}
+
+.popup-div .grupo-input-duplo {
+    display: flex;
+    gap: 20px;
+}
+
+.popup-div .botoes-acao {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.fechar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.4rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: #000;
+}
+
+/* ------------ Grupos de movimentação -------------- */
+
+.grupo-controle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    grid-template-areas:
+        "produto quantidade"
+        "buttons buttons";
+    align-items: start;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.grupo-input label {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.grupo-input input,
+.grupo-input select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.botoes-movimento {
+    display: flex;
+    gap: 10px;
+    grid-area: buttons;
+    justify-content: flex-start;
+}
+
+.btn-entrada,
+.btn-saida {
+    flex: 1;
+    padding: 15px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.btn-entrada {
+    background: #2793ff;
+    color: #fff;
+}
+
+.btn-entrada:hover {
+    background: #2f7ba7;
+}
+
+.btn-saida {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-saida:hover {
+    background: #bd2130;
+}
+
+/* ------------ Formulário de Cadastro -------------- */
+
+#form-produto .grupo-input,
+#form-produto .grupo-input-duplo>div {
+    margin-bottom: 15px;
+}
+
+.grupo-input-duplo {
+    display: flex;
+    gap: 20px;
+}
+
+.grupo-input-duplo>div {
+    flex: 1;
+}
+
+#form-produto label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+#form-produto input,
+#form-produto textarea,
+#form-produto select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#form-produto textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primario,
+.btn-secundario {
+    flex: 1;
+    padding: 15px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-primario {
+    background-color: #2793ff;
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.btn-primario:hover {
+    background-color: #2f7ba7;
+}
+
+.btn-secundario {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 15px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secundario:hover {
+    background-color: #d32f2f;
+}
+
+/* ------------ Responsividade (GPT) -------------- */
+/* --------- Responsividade Mobile (até 600px) --------- */
+@media (max-width: 600px) {
+
+    /* Ajusta padding geral */
+    .container-estoque {
+        padding: 0 10px;
+    }
+
+    /* Header: empilha elementos */
+    .header-estoque {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-estoque .usuario-info {
+        margin-top: 10px;
+    }
+
+    /* Seções: largura total e margens reduzidas */
+    .secao-lista,
+    .secao-formulario,
+    .secao-controles {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* Tabela: fonte menor e células mais compactas */
+    #estoqueTable th,
+    #estoqueTable td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    #estoqueTable th:nth-child(4),
+    #estoqueTable td:nth-child(4) {
+        width: auto;
+        padding: 8px 5px;
+    }
+
+    /* Formulário de cadastro: inputs full‑width já vêm por padrão */
+    #form-produto .grupo-input-duplo {
+        flex-direction: column;
+    }
+
+    #form-produto .grupo-input-duplo>div {
+        width: 100%;
+    }
+
+    /* Pop‑up de Edição: ocupa quase toda a tela */
+    .popup-div {
+        width: 90%;
+        min-width: auto;
+        padding: 20px;
+    }
+
+    /* Movimentação: empilha controles */
+    .secao-controles .grupo-controle {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "produto"
+            "quantidade"
+            "buttons";
+    }
+}
+
+/* --------- Responsividade Pequenas Tablets (601px a 900px) --------- */
+@media (min-width: 601px) and (max-width: 900px) {
+    .container-estoque {
+        max-width: 700px;
+        padding: 0 15px;
+    }
+
+    .secao-lista,
+    .secao-formulario,
+    .secao-controles {
+        padding: 18px;
+    }
+
+    .popup-div {
+        width: 80%;
+        min-width: 360px;
+    }
+}
+
+/* --------- Ajustes gerais fluidos --------- */
+/* Faz imagens, vídeos, tabelas rolarem horizontalmente se necessário */
+img,
+video,
+#produtos-container {
+    max-width: 100%;
+    height: auto;
+    overflow-x: auto;
+}
