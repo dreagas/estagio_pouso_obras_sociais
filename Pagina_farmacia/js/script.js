@@ -25,7 +25,7 @@ async function carregarProdutos() {
     try {
         const res = await fetch("http://localhost:3000/produtos");
         todosProdutos = await res.json();
-        atualizarExibicaoProdutos(todosProdutos);
+        filtrarOrdenarProdutos();
         atualizarSelectMovimentacao(todosProdutos);
     } catch (error) {
         console.error("Erro ao carregar produtos:", error);
@@ -34,68 +34,75 @@ async function carregarProdutos() {
 
 function atualizarExibicaoProdutos(produtos) {
     produtosContainer.innerHTML = produtos.map(produto => `
-        <div class="card-medicamento">
-            <div class="card-codigo">${produto.codigo || 'N/E'}</div>
-            <div class="card-header">
-                <h3>${produto.nome}</h3>
-                <div class="info-item">
-                    <span class="info-label">Concentração:</span>
-                    <span class="info-value">${produto.concentracao}</span>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <span class="info-label">Descrição:</span>
-                <span class="info-value">${produto.descricao}</span>
-            </div>
-
-            <div class="info-item">
-                <span class="info-label">Estoque:</span>
-                <span class="info-value">${produto.quantidade} ${produto.unidade}</span>
-            </div>
-
-            <div class="info-item">
-                <span class="info-label">Classe:</span>
-                <span class="info-value">${produto.classe}</span>
-            </div>
-
-            ${produto.controleEspecial ?
-            '<div class="controle-especial">Sujeito a Controle Especial</div>' : ''}
-
-            <div class="card-acoes">
-                <button class="btn-editar" data-id="${produto.id}">
-                    <i class="fas fa-pencil-alt"></i> Editar
-                </button>
-                <button class="btn-excluir" data-id="${produto.id}">
-                    <i class="fas fa-trash"></i> Excluir
-                </button>
-            </div>
+<div class="card-medicamento">
+    <div class="card-codigo-barras">${produto.codigoBarras}</div>
+    <div class="card-header">
+        <h3>${produto.nome}</h3>
+    </div>
+    
+    <div class="info-grid">
+        <div class="info-item">
+            <span class="info-label">ID:</span>
+            <span class="info-value">${produto.id}</span>
         </div>
-    `).join("");
+        <div class="info-item">
+            <span class="info-label">Concentração:</span>
+            <span class="info-value">${produto.concentracao}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Tipo:</span>
+            <span class="info-value">${produto.tipo}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Estoque:</span>
+            <span class="info-value">${produto.quantidade} unidades</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Classe:</span>
+            <span class="info-value">${produto.classe}</span>
+        </div>
+        <div class="info-item full-width">
+            <span class="info-label">Descrição:</span>
+            <span class="info-value">${produto.descricao.replace(/\n/g, '<br>')}</span>
+        </div>
+    </div>
 
-    // Adiciona altura fixa e scroll
-    produtosContainer.style.height = 'auto'; // alterado: altura dinâmica para permitir mais espaço
-    produtosContainer.style.overflowY = 'visible'; // alterado: overflow dinâmico
+    ${produto.controleEspecial
+            ? '<div class="controle-especial">CONTROLE ESPECIAL</div>'
+            : ''}
+
+    <div class="card-acoes">
+        <button class="btn-editar" data-id="${produto.id}">
+            <i class="fas fa-pencil-alt"></i> Editar
+        </button>
+        <button class="btn-excluir" data-id="${produto.id}">
+            <i class="fas fa-trash"></i> Excluir
+        </button>
+    </div>
+</div>
+`).join("");
+
+    produtosContainer.style.height = 'auto';
+    produtosContainer.style.overflowY = 'visible';
 }
 
-function atualizarSelectMovimentacao(produtos) {
-    selectProduto.innerHTML = produtos.map(p =>
-        `<option value="${p.id}">${p.nome}</option>`
-    ).join("");
-}
-
-// Filtragem e ordenação
+// Novo filtro de ordenação
 function filtrarOrdenarProdutos() {
     const termo = inputPesquisa.value.toLowerCase();
     const ordem = filtroOrdem.value;
 
     let produtosFiltrados = todosProdutos.filter(produto =>
         produto.nome.toLowerCase().includes(termo) ||
-        (produto.codigo && produto.codigo.includes(termo)) ||
-        (produto.descricao && produto.descricao.toLowerCase().includes(termo))
+        produto.id.toString().includes(termo) ||
+        produto.codigoBarras.includes(termo)
     );
 
+    // Aplicar ordenação baseada na seleção
     switch (ordem) {
+        case 'recentes':
+            // Ordenar por ID decrescente (mais recente primeiro)
+            produtosFiltrados.sort((a, b) => b.id - a.id);
+            break;
         case 'az':
             produtosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome));
             break;
@@ -105,6 +112,9 @@ function filtrarOrdenarProdutos() {
         case 'estoque':
             produtosFiltrados.sort((a, b) => b.quantidade - a.quantidade);
             break;
+        default:
+            // Ordenação padrão caso não encontre a opção
+            produtosFiltrados.sort((a, b) => b.id - a.id);
     }
 
     atualizarExibicaoProdutos(produtosFiltrados);
@@ -114,15 +124,20 @@ function filtrarOrdenarProdutos() {
 formCadastro.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    function gerarID() {
+        return Date.now().toString(); // Retorna o timestamp atual em string
+    }
+
     const novoMedicamento = {
+        id: gerarID(), // ID gerado automaticamente
         nome: document.getElementById("nome-produto").value,
+        quantidade: parseInt(document.getElementById("quantidade").value),
         concentracao: document.getElementById("concentracao").value,
-        unidade: document.getElementById("unidade").value,
+        tipo: document.getElementById("tipo").value,
         descricao: document.getElementById("descricao").value,
         classe: document.getElementById("classe").value,
-        codigoBarras: document.getElementById("codigoBarras").value,
-        controleEspecial: document.getElementById("cadastroControleEspecial").checked,
-        quantidade: 0 // Inicia com estoque zero
+        codigoBarras: document.getElementById("codigoBarras").value, // ID corrigido
+        controleEspecial: document.getElementById("cadastroControleEspecial").checked
     };
 
     await fetch("http://localhost:3000/produtos", {
@@ -147,12 +162,10 @@ document.addEventListener('click', async (e) => {
         // Preencher formulário de edição
         document.getElementById("editNome").value = produto.nome;
         document.getElementById("editConcentracao").value = produto.concentracao;
-        document.getElementById("editUnidade").value = produto.unidade;
-        document.getElementById("editDCB").value = produto.dcb || '';
-        document.getElementById("editClasse").value = produto.classe;
-        document.getElementById("editRegistroMS").value = produto.registroMS || '';
-        document.getElementById("editCodigoBarras").value = produto.codigoBarras;
+        document.getElementById("editTipo").value = produto.tipo;
+        document.getElementById("editCodigoBarras").value = produto.codigoDCB;
         document.getElementById("editControleEspecial").checked = produto.controleEspecial;
+        document.getElementById("editQuantidade").value = produto.quantidade;
 
         mostrarPopup();
     }
@@ -174,12 +187,10 @@ editForm.addEventListener("submit", async (e) => {
     const medicamentoAtualizado = {
         nome: document.getElementById("editNome").value,
         concentracao: document.getElementById("editConcentracao").value,
-        unidade: document.getElementById("editUnidade").value,
-        dcb: document.getElementById("editDCB").value,
-        classe: document.getElementById("editClasse").value,
-        registroMS: document.getElementById("editRegistroMS").value,
-        codigoBarras: document.getElementById("editCodigoBarras").value,
-        controleEspecial: document.getElementById("editControleEspecial").checked
+        tipo: document.getElementById("editTipo").value,
+        codigoDCB: document.getElementById("editCodigoBarras").value,
+        controleEspecial: document.getElementById("editControleEspecial").checked,
+        quantidade: parseInt(document.getElementById("editQuantidade").value)
     };
 
     await fetch(`http://localhost:3000/produtos/${editandoId}`, {

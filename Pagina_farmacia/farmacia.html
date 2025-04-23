@@ -30,6 +30,7 @@
                 <div class="grupo-pesquisa">
                     <input type="text" id="pesquisa" placeholder="Digite nome, código ou DCB..." class="input-pesquisa">
                     <select id="filtro-ordem" class="seletor-ordem">
+                        <option value="az">Recentes</option>
                         <option value="az">A-Z</option>
                         <option value="za">Z-A</option>
                         <option value="estoque">Quantidade em Estoque</option>
@@ -41,7 +42,7 @@
             <section class="secao-lista">
                 <h2><i class="fas fa-pills"></i> Medicamentos em Estoque</h2>
                 <div id="produtos-container" class="grid-medicamentos">
-                    <!-- Cards serão inseridos aqui via JavaScript -->
+                    <!-- Local onde a lista de medicamentos será renderizada pelo JS -->
                 </div>
             </section>
 
@@ -74,36 +75,43 @@
             <section class="secao-formulario">
                 <h2><i class="fas fa-plus-circle"></i> Cadastrar Novo Medicamento</h2>
                 <form id="form-produto">
-                    <div class="grupo-input">
-                        <label>Nome Comercial:</label>
-                        <input type="text" id="nome-produto" required>
+
+                    <!-- Campo nome e Quantidade -->
+                    <div class="grupo-input-duplo">
+                        <div class="grupo-input">
+                            <label>Nome Comercial:</label>
+                            <input type="text" id="nome-produto" required>
+                        </div>
+                        <div class="grupo-input">
+                            <label>Quantidade:</label>
+                            <input type="number" id="quantidade" min="1" required>
+                        </div>
                     </div>
 
-                    <div class="grupo-input">
-                        <label>Nome Comercial:</label>
-                        <input type="text" id="nome-produto" required>
-                    </div>
-
+                    <!-- Campo concentração e tipo-->
                     <div class="grupo-input-duplo">
                         <div>
                             <label>Concentração:</label>
                             <input type="text" id="concentracao" required>
                         </div>
                         <div>
-                            <label>Unidade:</label>
-                            <select id="unidade">
+                            <label>Tipo:</label>
+                            <select id="tipo">
                                 <option value="Caixa">Caixa</option>
                                 <option value="Ampola">Ampola</option>
                                 <option value="Frasco">Frasco</option>
+                                <option value="Comprimidos">Comprimidos</option>
                             </select>
                         </div>
                     </div>
 
+                    <!-- Campo descrição -->
                     <div class="grupo-input">
                         <label>Descrição:</label>
                         <textarea id="descricao" rows="3" required></textarea>
                     </div>
 
+                    <!-- Campo classe e código de barras -->
                     <div class="grupo-input-duplo">
                         <div>
                             <label>Classe Terapêutica:</label>
@@ -141,9 +149,16 @@
                 <span id="fecharPopup" class="fechar">&times;</span>
                 <h2><i class="fas fa-edit"></i> Editar Medicamento</h2>
                 <form id="editForm">
+
+                    <div class="grupo-input-duplo">
+                        <div class="grupo-input">
+                            <label for="editNome">Nome Comercial:</label>
+                            <input type="text" id="editNome" required>
+                        </div>
+                    </div>
                     <div class="grupo-input">
-                        <label for="editNome">Nome Comercial:</label>
-                        <input type="text" id="editNome" required>
+                        <label for="editQuantidade">Quantidade:</label>
+                        <input type="number" id="editQuantidade" min="1" required>
                     </div>
 
                     <div class="grupo-input-duplo">
@@ -152,35 +167,28 @@
                             <input type="text" id="editConcentracao" required>
                         </div>
                         <div>
-                            <label for="editUnidade">Unidade:</label>
-                            <select id="editUnidade">
+                            <label for="editTipo">Tipo:</label>
+                            <select id="editTipo">
                                 <option value="Caixa">Caixa</option>
                                 <option value="Ampola">Ampola</option>
                                 <option value="Frasco">Frasco</option>
+                                <option value="Frasco">Comprimidos</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="grupo-input-duplo">
-                        <div>
-                            <label for="editDCB">DCB:</label>
-                            <input type="text" id="editDCB" required>
-                        </div>
-                        <div>
-                            <label for="editClasse">Classe Terapêutica:</label>
-                            <input type="text" id="editClasse" required>
-                        </div>
+                    <div class="grupo-input">
+                        <label for="editDescricao">Descrição:</label>
+                        <textarea id="editDescricao" rows="3" required></textarea>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="editClasse">Classe Terapêutica:</label>
+                        <input type="text" id="editClasse" required>
                     </div>
 
-                    <div class="grupo-input-duplo">
-                        <div>
-                            <label for="editRegistroMS">Registro ANVISA:</label>
-                            <input type="text" id="editRegistroMS" required>
-                        </div>
-                        <div>
-                            <label for="editCodigoBarras">Código de Barras:</label>
-                            <input type="text" id="editCodigoBarras" required>
-                        </div>
+                    <div class="grupo-input">
+                        <label for="editCodigoBarras">Código de Barras:</label>
+                        <input type="text" id="editCodigoBarras" required>
                     </div>
 
                     <div class="grupo-input controle-especial-popup toggle-switch">
