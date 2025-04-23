@@ -210,7 +210,7 @@
       "controleEspecial": true
     },
     {
-      "id": "5792",
+      "id": "1745427559492",
       "nome": "AAA",
       "quantidade": 10,
       "concentracao": "200MG",
@@ -218,6 +218,17 @@
       "descricao": "AQUELES",
       "classe": "QUALQUER",
       "codigoBarras": "40028922",
+      "controleEspecial": true
+    },
+    {
+      "id": "1745427559495",
+      "nome": "DDD",
+      "quantidade": 10,
+      "concentracao": "200mg",
+      "tipo": "Caixa",
+      "descricao": "Aqueles",
+      "classe": "Qualquer",
+      "codigoBarras": "40029822",
       "controleEspecial": true
     }
   ]

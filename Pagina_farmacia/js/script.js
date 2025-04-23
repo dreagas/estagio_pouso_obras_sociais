@@ -42,10 +42,6 @@ function atualizarExibicaoProdutos(produtos) {
     
     <div class="info-grid">
         <div class="info-item">
-            <span class="info-label">ID:</span>
-            <span class="info-value">${produto.id}</span>
-        </div>
-        <div class="info-item">
             <span class="info-label">Concentração:</span>
             <span class="info-value">${produto.concentracao}</span>
         </div>
@@ -97,24 +93,17 @@ function filtrarOrdenarProdutos() {
         produto.codigoBarras.includes(termo)
     );
 
-    // Aplicar ordenação baseada na seleção
+    // Ordenação padrão A-Z
+    produtosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome));
+
+    // Aplicar ordenação adicional se selecionada
     switch (ordem) {
-        case 'recentes':
-            // Ordenar por ID decrescente (mais recente primeiro)
-            produtosFiltrados.sort((a, b) => b.id - a.id);
-            break;
-        case 'az':
-            produtosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome));
-            break;
         case 'za':
             produtosFiltrados.sort((a, b) => b.nome.localeCompare(a.nome));
             break;
         case 'estoque':
             produtosFiltrados.sort((a, b) => b.quantidade - a.quantidade);
             break;
-        default:
-            // Ordenação padrão caso não encontre a opção
-            produtosFiltrados.sort((a, b) => b.id - a.id);
     }
 
     atualizarExibicaoProdutos(produtosFiltrados);
@@ -161,11 +150,13 @@ document.addEventListener('click', async (e) => {
 
         // Preencher formulário de edição
         document.getElementById("editNome").value = produto.nome;
+        document.getElementById("editQuantidade").value = produto.quantidade;
         document.getElementById("editConcentracao").value = produto.concentracao;
         document.getElementById("editTipo").value = produto.tipo;
-        document.getElementById("editCodigoBarras").value = produto.codigoDCB;
+        document.getElementById("editDescricao").value = produto.descricao;
+        document.getElementById("editClasse").value = produto.classe;
+        document.getElementById("editCodigoBarras").value = produto.codigoBarras; // Corrigido de codigoDCB
         document.getElementById("editControleEspecial").checked = produto.controleEspecial;
-        document.getElementById("editQuantidade").value = produto.quantidade;
 
         mostrarPopup();
     }
@@ -185,12 +176,15 @@ editForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const medicamentoAtualizado = {
+        id: editandoId, // Mantém o mesmo ID
         nome: document.getElementById("editNome").value,
+        quantidade: parseInt(document.getElementById("editQuantidade").value),
         concentracao: document.getElementById("editConcentracao").value,
         tipo: document.getElementById("editTipo").value,
-        codigoDCB: document.getElementById("editCodigoBarras").value,
-        controleEspecial: document.getElementById("editControleEspecial").checked,
-        quantidade: parseInt(document.getElementById("editQuantidade").value)
+        descricao: document.getElementById("editDescricao").value,
+        classe: document.getElementById("editClasse").value,
+        codigoBarras: document.getElementById("editCodigoBarras").value, // Nome correto
+        controleEspecial: document.getElementById("editControleEspecial").checked
     };
 
     await fetch(`http://localhost:3000/produtos/${editandoId}`, {
