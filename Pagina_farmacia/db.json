@@ -211,14 +211,14 @@
     },
     {
       "id": "1745427559492",
-      "nome": "AAA",
-      "quantidade": 10,
+      "nome": "BBB",
+      "quantidade": 30,
       "concentracao": "200MG",
       "tipo": "Caixa",
       "descricao": "AQUELES",
       "classe": "QUALQUER",
       "codigoBarras": "40028922",
-      "controleEspecial": true
+      "controleEspecial": false
     },
     {
       "id": "1745427559495",
@@ -230,6 +230,17 @@
       "classe": "Qualquer",
       "codigoBarras": "40029822",
       "controleEspecial": true
+    },
+    {
+      "id": "1745428733767",
+      "nome": "AAA",
+      "quantidade": 10,
+      "concentracao": "200mg",
+      "tipo": "Caixa",
+      "descricao": "AQUELES",
+      "classe": "TESTE",
+      "codigoBarras": "400228992",
+      "controleEspecial": false
     }
   ]
 }
