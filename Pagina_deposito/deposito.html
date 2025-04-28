@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="css/mantimentos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar-admin">
+        <div class="nav-container">
+            <!-- Logo à Esquerda -->
+            <div class="logo-container">
+                <img src="assets/pouso_logo.svg" alt="Pouso Obras Sociais" class="nav-logo">
+            </div>
+
+            <!-- Botão Voltar à Direita -->
+            <a href="painel-admin.html" class="nav-voltar-btn">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Painel Administrativo
+            </a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Bloco de Destaque -->
+        <section class="destaque">
+            <div class="card">
+                <i class="fas fa-box destaque-icone"></i>
+                <h3>Total de Itens</h3>
+                <span class="destaque-valor">25</span>
+            </div>
+            <div class="card">
+                <i class="fas fa-users destaque-icone"></i>
+                <h3>Total de Doadores</h3>
+                <span class="destaque-valor">12</span>
+            </div>
+        </section>
+
+        <!-- Lista de Itens -->
+        <section class="lista-itens">
+
+            <div class="items-box">
+                <h2><i class="fas fa-list-ul"></i> Últimas Entradas</h2>
+                <div class="item-card">
+
+                    <!-- Exemplo 1-->
+                    <div class="item-info">
+                        <div class="item-info">
+                            <span class="item-nome">Arroz</span>
+                            <div class="item-meta">
+                                <span class="item-categoria">Alimentos</span>
+                                <span class="item-quantidade">15 unidades</span>
+                            </div>
+                            <span class="item-descricao">Arroz doado pelo José Walmir do mercado central.</span>
+                        </div>
+                        <div class="item-detalhes">
+                            <p><i class="fas fa-user"></i> Mercado Central</p>
+                            <p><i class="fas fa-calendar"></i> 28/04/2024</p>
+                            <p><i class="fas fa-phone"></i> (98) 9 1234-5678</p>
+                        </div>
+                        <div class="item-acoes">
+                            <div class="btn-group">
+                                <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
+                            </div>
+                            <div class="saida-group">
+                                <input type="number" class="item-saida" placeholder="Qtd. de Saída">
+                                <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Saída</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo 2-->
+                    <div class="item-info">
+                        <div class="item-info">
+                            <span class="item-nome">Vinagre</span>
+                            <div class="item-meta">
+                                <span class="item-categoria">Alimentos</span>
+                                <span class="item-quantidade">30 unidades</span>
+                            </div>
+                            <span class="item-descricao">Com amor doado pelo Sr. João Deputado Federal.</span>
+                        </div>
+                        <div class="item-detalhes">
+                            <p><i class="fas fa-user"></i> João Fernandes</p>
+                            <p><i class="fas fa-calendar"></i> 28/04/2024</p>
+                            <p><i class="fas fa-phone"></i> (98) 9 1234-5678</p>
+                        </div>
+                        <div class="item-acoes">
+                            <div class="btn-group">
+                                <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
+                            </div>
+                            <div class="saida-group">
+                                <input type="number" class="item-saida" placeholder="Qtd. de Saída">
+                                <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Saída</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exemplo 3-->
+                    <div class="item-info">
+                        <div class="item-info">
+                            <span class="item-nome">Detergente</span>
+                            <div class="item-meta">
+                                <span class="item-categoria">Produtos de limpeza</span>
+                                <span class="item-quantidade">20 unidades</span>
+                            </div>
+                            <span class="item-descricao">Doado pelo grupo Anhanguera.</span>
+                        </div>
+                        <div class="item-detalhes">
+                            <p><i class="fas fa-user"></i> Anhanguera Institucional</p>
+                            <p><i class="fas fa-calendar"></i> 28/04/2024</p>
+                            <p><i class="fas fa-phone"></i> (98) 9 1234-5678</p>
+                        </div>
+                        <div class="item-acoes">
+                            <div class="btn-group">
+                                <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
+                            </div>
+                            <div class="saida-group">
+                                <input type="number" class="item-saida" placeholder="Qtd. de Saída">
+                                <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Saída</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

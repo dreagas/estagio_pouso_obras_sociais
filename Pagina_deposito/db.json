@@ -1,0 +1,105 @@
+{
+    "mantimentos": [
+      {
+        "id": 1,
+        "nome": "Arroz",
+        "descricao": "Pacote de arroz branco 5kg",
+        "categoria": "alimentos",
+        "data": "2025-04-10",
+        "quantidade": 20,
+        "doador": "João Silva",
+        "telefoneDoador": "(98) 99999-0000"
+      },
+      {
+        "id": 2,
+        "nome": "Feijão",
+        "descricao": "Pacote de feijão carioca 1kg",
+        "categoria": "alimentos",
+        "data": "2025-04-12",
+        "quantidade": 15,
+        "doador": "Maria Oliveira",
+        "telefoneDoador": "(98) 98888-1111"
+      },
+      {
+        "id": 3,
+        "nome": "Óleo de Soja",
+        "descricao": "Garrafa de óleo de soja 900ml",
+        "categoria": "alimentos",
+        "data": "2025-04-15",
+        "quantidade": 10,
+        "doador": "Carlos Pereira",
+        "telefoneDoador": "(98) 97777-2222"
+      },
+      {
+        "id": 4,
+        "nome": "Leite UHT",
+        "descricao": "Caixa de leite integral 1L",
+        "categoria": "bebidas",
+        "data": "2025-04-18",
+        "quantidade": 25,
+        "doador": "Ana Souza",
+        "telefoneDoador": "(98) 96666-3333"
+      },
+      {
+        "id": 5,
+        "nome": "Pão Integral",
+        "descricao": "Pacote com 10 pães integrais",
+        "categoria": "pereciveis",
+        "data": "2025-04-20",
+        "quantidade": 5,
+        "doador": "Bruno Santos",
+        "telefoneDoador": "(98) 95555-4444"
+      },
+      {
+        "id": 6,
+        "nome": "Açúcar",
+        "descricao": "Pacote de açúcar refinado 2kg",
+        "categoria": "alimentos",
+        "data": "2025-04-22",
+        "quantidade": 30,
+        "doador": "Patrícia Lima",
+        "telefoneDoador": "(98) 94444-5555"
+      },
+      {
+        "id": 7,
+        "nome": "Sal",
+        "descricao": "Pacote de sal refinado 1kg",
+        "categoria": "alimentos",
+        "data": "2025-04-23",
+        "quantidade": 18,
+        "doador": "Ricardo Fernandes",
+        "telefoneDoador": "(98) 93333-6666"
+      },
+      {
+        "id": 8,
+        "nome": "Café Torrado",
+        "descricao": "Pacote de café torrado e moído 500g",
+        "categoria": "alimentos",
+        "data": "2025-04-24",
+        "quantidade": 12,
+        "doador": "Luciana Rocha",
+        "telefoneDoador": "(98) 92222-7777"
+      },
+      {
+        "id": 9,
+        "nome": "Macarrão",
+        "descricao": "Pacote de macarrão espaguete 500g",
+        "categoria": "alimentos",
+        "data": "2025-04-25",
+        "quantidade": 22,
+        "doador": "Fernando Costa",
+        "telefoneDoador": "(98) 91111-8888"
+      },
+      {
+        "id": 10,
+        "nome": "Milho enlatado",
+        "descricao": "Lata de milho verde 200g",
+        "categoria": "pereciveis",
+        "data": "2025-04-26",
+        "quantidade": 8,
+        "doador": "Mariana Alves",
+        "telefoneDoador": "(98) 90000-9999"
+      }
+    ]
+  }
+  
