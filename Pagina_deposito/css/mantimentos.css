@@ -6,51 +6,6 @@
     --fundo-claro: #f9f9f9;
     --texto-escuro: #1A3A4D;
     --borda: #ecf0f1;
-
-    /* Modo Escuro */
-    --fundo-escuro: #0d1a26;
-    --texto-claro: #e6f1ff;
-    --borda-escura: #1f3547;
-}
-
-[data-tema="escuro"] {
-    --cor-primaria: #4da8ff;
-    --cor-secundaria: #0059b3;
-    --fundo-claro: var(--fundo-escuro);
-    --texto-escuro: var(--texto-claro);
-    --borda: var(--borda-escura);
-
-    .navbar-admin {
-        background: var(--fundo-escuro);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .items-box,
-    .card-doacoes,
-    .card-quantidade,
-    .item-lista {
-        background: #122738 !important;
-        border-color: var(--borda-escura) !important;
-    }
-
-    .btn-tema {
-        color: var(--cor-primaria);
-        background: rgba(77, 168, 255, 0.1);
-    }
-
-    .input-pesquisa,
-    .item-saida {
-        background: #0a121b;
-        color: var(--texto-claro);
-    }
-}
-
-.nav-logo {
-    transition: opacity 0.3s ease;
-}
-
-.nav-logo:hover {
-    opacity: 0.8;
 }
 
 * {
@@ -133,30 +88,6 @@ body {
 
 .nav-voltar-btn:hover::after {
     width: 100%;
-}
-
-.btn-tema {
-    background: rgba(39, 147, 255, 0.1);
-    border: 0 solid var(--cor-primaria);
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    transition: all 0.3s ease;
-}
-
-.btn-tema:hover {
-    background: rgba(77, 168, 255, 0.2);
-    transform: rotate(15deg) scale(1.1);
-}
-
-.texto-tema {
-    font-size: 0.9rem;
-    font-weight: 600;
 }
 
 /* Alinhamento dos elementos à direita */
@@ -529,4 +460,134 @@ body {
     border-radius: 6px;
     text-align: center;
     font-size: 0.9rem;
+}
+
+/* == Página de adicionar itens == */
+.voltar-inicio {
+    position: relative;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 3px;
+    transition: all 0.3s ease;
+}
+
+.voltar-inicio::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-primaria);
+    transition: width 0.3s ease-out;
+}
+
+.voltar-inicio:hover::after {
+    width: 100%;
+}
+
+.voltar-inicio:hover {
+    opacity: 0.9;
+}
+
+.voltar-inicio i {
+    font-size: 0.9rem;
+}
+
+.cabecalho-formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Container do formulário */
+.items-box form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Título do formulário */
+.items-box h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.75rem;
+}
+
+.items-box form {
+    padding-top: 1rem;
+}
+
+/* Grupos de inputs */
+.grupo-input {
+    margin-bottom: 1rem;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--texto-escuro);
+    font-weight: 600;
+}
+
+.grupo-input input,
+.grupo-input select,
+.grupo-input textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus,
+.grupo-input textarea:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(39, 147, 255, 0.1);
+}
+
+/* Ajustes para inputs lado a lado */
+.grupo-input-duplo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Botão de cadastro */
+.botoes-acao {
+    margin-top: 2rem;
+    border-top: 2px solid var(--borda);
+    padding-top: 2rem;
+}
+
+.btn-adicionar {
+    background: var(--cor-primaria);
+    color: white;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-adicionar:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 147, 255, 0.2);
 }
