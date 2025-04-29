@@ -7,14 +7,6 @@
     --borda: #ecf0f1;
 }
 
-[data-tema="escuro"] {
-    --cor-primaria: #3498db;
-    --cor-secundaria: #2c3e50;
-    --fundo-claro: #2c3e50;
-    --texto-escuro: #ecf0f1;
-    --borda: #34495e;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +35,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     gap: 1rem;
 }
@@ -97,6 +89,35 @@ body {
     width: 100%;
 }
 
+.btn-tema {
+    background: rgba(39, 147, 255, 0.1);
+    border: 0 solid var(--cor-primaria);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-tema:hover {
+    color: var(--cor-primaria);
+    transform: translateY(-2px);
+}
+
+.texto-tema {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Alinhamento dos elementos à direita */
+.nav-direita {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
 /* Container Principal */
 .container {
     display: flex;
@@ -113,6 +134,67 @@ body {
     position: sticky;
     margin-top: 0;
     top: 80px;
+}
+
+/* Controles superiores */
+.controle-superior {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.barra-pesquisa {
+    flex: 1;
+    position: relative;
+    max-width: 400px;
+}
+
+.input-pesquisa {
+    width: 100%;
+    padding: 0.8rem 2.5rem 0.8rem 1rem;
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-pesquisa:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.barra-pesquisa i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cor-secundaria);
+}
+
+.btn-adicionar {
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-adicionar:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 147, 255, 0.2);
+}
+
+.btn-adicionar i {
+    font-size: 1.1rem;
 }
 
 /* Cards de Doações e Quantidade */
@@ -395,4 +477,45 @@ body {
     border-radius: 6px;
     text-align: center;
     font-size: 0.9rem;
+}
+
+/* Modo escuro */
+[data-tema="escuro"] {
+    --cor-primaria: #3498db;
+    --cor-secundaria: #2980b9;
+    --fundo-claro: #2c3e50;
+    --texto-escuro: #ecf0f1;
+    --borda: #34495e;
+
+    .navbar-admin {
+        background: #1a252f;
+    }
+
+    .items-box,
+    .card-doacoes,
+    .card-quantidade,
+    .item-lista {
+        background: #2c3e50 !important;
+        border-color: #34495e !important;
+    }
+}
+
+[data-tema="escuro"] .btn-tema {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--cor-secundaria);
+    color: var(--cor-secundaria);
+}
+
+[data-tema="escuro"] .btn-tema:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-tema:hover {
+    background: rgba(39, 147, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-tema i {
+    margin-right: 0;
+    font-size: 1rem;
 }

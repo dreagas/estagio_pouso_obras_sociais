@@ -18,11 +18,18 @@
                 <img src="assets/pouso_logo.svg" alt="Pouso Obras Sociais" class="nav-logo">
             </div>
 
-            <!-- Botão Voltar à Direita -->
-            <a href="painel-admin.html" class="nav-voltar-btn">
-                <i class="fas fa-arrow-left"></i>
-                Voltar ao Painel Administrativo
-            </a>
+            <!-- Botões à direita -->
+            <div class="nav-direita">
+                <a href="painel-admin.html" class="nav-voltar-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar ao Painel Administrativo
+                </a>
+                <button id="btn-tema" class="btn-tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+
         </div>
     </nav>
 
@@ -53,6 +60,19 @@
         <!-- Lista de Itens -->
         <section class="lista-itens">
             <div class="items-box">
+
+                <!-- Barra de pesquisar e botão de adicionar-->
+                <div class="controle-superior">
+                    <div class="barra-pesquisa">
+                        <input type="text" placeholder="Pesquisar item..." class="input-pesquisa">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <button class="btn-adicionar">
+                        <i class="fas fa-plus"></i>
+                        Adicionar Item
+                    </button>
+                </div>
+
                 <h2><i class="fas fa-list-ul"></i> Últimas Entradas</h2>
                 <div class="itens-container">
 
