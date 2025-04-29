@@ -1,0 +1,215 @@
+/* relatorios.css */
+:root {
+    --cor-primaria: #2793ff;
+    --cor-secundaria: #0773FF;
+    --cor-terciaria: #F3423F;
+    --fundo-claro: #f9f9f9;
+    --texto-escuro: #1A3A4D;
+    --borda: #ecf0f1;
+    --sombra-box: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Estrutura base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: var(--fundo-claro);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+/* Navbar idêntico ao depósito */
+.navbar-admin {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+}
+
+.nav-voltar-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--texto-escuro);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.nav-voltar-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cor-primaria);
+    transition: width 0.3s;
+}
+
+.nav-voltar-btn:hover::after {
+    width: 100%;
+}
+
+/* Container principal */
+.container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Box principal (igual ao da listagem) */
+.box-principal {
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--sombra-box);
+    margin-top: 1.5rem;
+}
+
+/* Cabeçalho */
+.cabecalho-relatorios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--borda);
+}
+
+.titulo-principal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--cor-primaria);
+}
+
+.titulo-principal i {
+    font-size: 1.8rem;
+}
+
+/* Grid de cards */
+.grid-relatorios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Cards de relatório */
+.card-relatorio {
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-relatorio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--cor-primaria);
+}
+
+.card-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.icone-relatorio {
+    width: 45px;
+    height: 45px;
+    background: rgba(39, 147, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-primaria);
+    font-size: 1.3rem;
+}
+
+/* Lista de logs */
+.lista-logs {
+    list-style: none;
+}
+
+.item-log {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(39, 147, 255, 0.03);
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.item-log i {
+    color: var(--cor-secundaria);
+    min-width: 25px;
+}
+
+.data-log {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+/* Botões aprimorados */
+.btn-relatorio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn-relatorio:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 147, 255, 0.2);
+}
+
+/* Detalhes visuais */
+.destaque-info {
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
