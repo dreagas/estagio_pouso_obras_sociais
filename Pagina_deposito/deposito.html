@@ -28,108 +28,143 @@
 
     <main class="container">
         <!-- Bloco de Destaque -->
-        <section class="destaque">
-            <div class="card">
-                <i class="fas fa-box destaque-icone"></i>
-                <h3>Total de Itens</h3>
-                <span class="destaque-valor">25</span>
-            </div>
-            <div class="card">
-                <i class="fas fa-users destaque-icone"></i>
-                <h3>Total de Doadores</h3>
-                <span class="destaque-valor">12</span>
-            </div>
-        </section>
-
-        <!-- Lista de Itens -->
-        <section class="lista-itens">
-
-            <div class="items-box">
-                <h2><i class="fas fa-list-ul"></i> Últimas Entradas</h2>
-                <div class="item-card">
-
-                    <!-- Exemplo 1-->
-                    <div class="item-info">
-                        <div class="item-info">
-                            <span class="item-nome">Arroz</span>
-                            <div class="item-meta">
-                                <span class="item-categoria">Alimentos</span>
-                                <span class="item-quantidade">15 unidades</span>
-                            </div>
-                            <span class="item-descricao">Arroz doado pelo José Walmir do mercado central.</span>
-                        </div>
-                        <div class="item-detalhes">
-                            <p><i class="fas fa-user"></i> Mercado Central</p>
-                            <p><i class="fas fa-calendar"></i> 28/04/2024</p>
-                            <p><i class="fas fa-phone"></i> (98) 9 1234-5678</p>
-                        </div>
-                        <div class="item-acoes">
-                            <div class="btn-group">
-                                <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
-                                <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
-                            </div>
-                            <div class="saida-group">
-                                <input type="number" class="item-saida" placeholder="Qtd. de Saída">
-                                <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Saída</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Exemplo 2-->
-                    <div class="item-info">
-                        <div class="item-info">
-                            <span class="item-nome">Vinagre</span>
-                            <div class="item-meta">
-                                <span class="item-categoria">Alimentos</span>
-                                <span class="item-quantidade">30 unidades</span>
-                            </div>
-                            <span class="item-descricao">Com amor doado pelo Sr. João Deputado Federal.</span>
-                        </div>
-                        <div class="item-detalhes">
-                            <p><i class="fas fa-user"></i> João Fernandes</p>
-                            <p><i class="fas fa-calendar"></i> 28/04/2024</p>
-                            <p><i class="fas fa-phone"></i> (98) 9 1234-5678</p>
-                        </div>
-                        <div class="item-acoes">
-                            <div class="btn-group">
-                                <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
-                                <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
-                            </div>
-                            <div class="saida-group">
-                                <input type="number" class="item-saida" placeholder="Qtd. de Saída">
-                                <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Saída</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Exemplo 3-->
-                    <div class="item-info">
-                        <div class="item-info">
-                            <span class="item-nome">Detergente</span>
-                            <div class="item-meta">
-                                <span class="item-categoria">Produtos de limpeza</span>
-                                <span class="item-quantidade">20 unidades</span>
-                            </div>
-                            <span class="item-descricao">Doado pelo grupo Anhanguera.</span>
-                        </div>
-                        <div class="item-detalhes">
-                            <p><i class="fas fa-user"></i> Anhanguera Institucional</p>
-                            <p><i class="fas fa-calendar"></i> 28/04/2024</p>
-                            <p><i class="fas fa-phone"></i> (98) 9 1234-5678</p>
-                        </div>
-                        <div class="item-acoes">
-                            <div class="btn-group">
-                                <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
-                                <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
-                            </div>
-                            <div class="saida-group">
-                                <input type="number" class="item-saida" placeholder="Qtd. de Saída">
-                                <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Saída</button>
-                            </div>
-                        </div>
+        <div class="lateral-direita">
+            <div class="card-destaque">
+                <div class="destaque-content">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div>
+                        <h3>Total de Doações</h3>
+                        <span class="destaque-valor">12</span>
                     </div>
                 </div>
             </div>
+            <div class="card-quantidade">
+                <div class="quantidade-header">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Estoque Total</h3>
+                </div>
+                <div class="quantidade-lista">
+                    <div class="quantidade-item">
+                        <span>Itens cadastrados</span>
+                        <span class="quantidade-valor">3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Itens -->
+        <section class="lista-itens">
+            <div class="items-box">
+                <h2><i class="fas fa-list-ul"></i> Últimas Entradas</h2>
+                <div class="itens-container">
+
+                    <!-- Item 1 -->
+                    <div class="item-lista">
+                        <div class="item-cabecalho">
+                            <div class="item-info-principal">
+                                <div class="item-meta">
+                                    <span class="item-nome">Arroz Integral</span>
+                                    <span class="item-categoria">Alimentos</span>
+                                </div>
+                                <div class="item-descricao">
+                                    Arroz doado pelo Mercado Central para distribuição comunitária
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-detalhes">
+                            <div class="item-info">
+                                <p><i class="fas fa-user"></i> Doador: Mercado Central</p>
+                                <p><i class="fas fa-calendar"></i> Data: 01/05/2024</p>
+                                <p><i class="fas fa-phone"></i> Contato: (98) 98765-4321</p>
+                                <p><i class="fas fa-box"></i> Quantidade: 15 unidades</p>
+                            </div>
+
+                            <div class="item-acoes">
+                                <div class="btn-group">
+                                    <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                                    <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
+                                </div>
+                                <div class="saida-group">
+                                    <input type="number" class="item-saida" placeholder="Qtd. de Saída" min="1">
+                                    <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Registrar
+                                        Saída</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 1 -->
+                    <div class="item-lista">
+                        <div class="item-cabecalho">
+                            <div class="item-info-principal">
+                                <div class="item-meta">
+                                    <span class="item-nome">Arroz Integral</span>
+                                    <span class="item-categoria">Alimentos</span>
+                                </div>
+                                <div class="item-descricao">
+                                    Arroz doado pelo Mercado Central para distribuição comunitária
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-detalhes">
+                            <div class="item-info">
+                                <p><i class="fas fa-user"></i> Doador: Mercado Central</p>
+                                <p><i class="fas fa-calendar"></i> Data: 01/05/2024</p>
+                                <p><i class="fas fa-phone"></i> Contato: (98) 98765-4321</p>
+                                <p><i class="fas fa-box"></i> Quantidade: 15 unidades</p>
+                            </div>
+
+                            <div class="item-acoes">
+                                <div class="btn-group">
+                                    <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                                    <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
+                                </div>
+                                <div class="saida-group">
+                                    <input type="number" class="item-saida" placeholder="Qtd. de Saída" min="1">
+                                    <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Registrar
+                                        Saída</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 1 -->
+                    <div class="item-lista">
+                        <div class="item-cabecalho">
+                            <div class="item-info-principal">
+                                <div class="item-meta">
+                                    <span class="item-nome">Arroz Integral</span>
+                                    <span class="item-categoria">Alimentos</span>
+                                </div>
+                                <div class="item-descricao">
+                                    Arroz doado pelo Mercado Central para distribuição comunitária
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-detalhes">
+                            <div class="item-info">
+                                <p><i class="fas fa-user"></i> Doador: Mercado Central</p>
+                                <p><i class="fas fa-calendar"></i> Data: 01/05/2024</p>
+                                <p><i class="fas fa-phone"></i> Contato: (98) 98765-4321</p>
+                                <p><i class="fas fa-box"></i> Quantidade: 15 unidades</p>
+                            </div>
+
+                            <div class="item-acoes">
+                                <div class="btn-group">
+                                    <button class="btn-editar"><i class="fas fa-edit"></i> Editar</button>
+                                    <button class="btn-deletar"><i class="fas fa-trash"></i> Deletar</button>
+                                </div>
+                                <div class="saida-group">
+                                    <input type="number" class="item-saida" placeholder="Qtd. de Saída" min="1">
+                                    <button class="btn-saida"><i class="fas fa-right-from-bracket"></i> Registrar
+                                        Saída</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </section>
     </main>
 
