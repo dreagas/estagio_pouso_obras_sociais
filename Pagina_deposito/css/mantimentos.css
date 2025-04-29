@@ -1,4 +1,3 @@
-/* css/estilo.css */
 :root {
     --cor-primaria: #2793ff;
     --cor-secundaria: #0773FF;
@@ -100,72 +99,98 @@ body {
 
 /* Container Principal */
 .container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+    padding: 0 3rem 2rem;
 }
 
-/* Bloco de Destaque */
-.destaque-container {
-    position: absolute;
-    top: 60px;
-    right: 1rem;
-    z-index: 100;
-    transition: all 0.3s ease;
+.lateral-direita {
+    order: 2;
+    flex: 0 0 230px;
+    gap: 1.5rem;
+    position: sticky;
+    margin-top: 0;
+    top: 80px;
 }
 
-.card-destaque {
-    background: var(--cor-primaria);
-    color: white;
-    border-radius: 10px;
-    padding: 0.4rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    width: 220px;
-    height: 100px;
-    cursor: default;
-    transition: all 0.3s ease;
+/* Cards de Doações e Quantidade */
+.card-doacoes .doacao-content,
+.card-quantidade .quantidade-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.card-destaque:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+.card-doacoes,
+.card-quantidade {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-secundaria);
 }
 
-.destaque-content {
+.card-doacoes i,
+.card-quantidade i {
+    font-size: 2.5rem;
+    background: rgba(39, 147, 255, 0.1);
+    color: var(--cor-secundaria);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
 }
 
-.destaque-content i {
-    font-size: 2rem;
-    color: white;
-    padding: 1rem;
-    border-radius: 50%;
-}
-
-.destaque-content h3 {
-    font-size: 1rem;
-    color: white;
-    margin-bottom: 0.3rem;
-    font-weight: bolder;
-}
-
-.destaque-valor {
+.card-doacoes h3,
+.card-quantidade h3 {
+    color: var(--texto-escuro);
     font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.doacao-valor,
+.quantidade-valor {
+    font-size: 1.5rem;
     font-weight: 800;
-    color: white
+    color: var(--cor-primaria);
+    line-height: 1;
+    margin-top: 0.5rem;
+}
+
+/* Ajustes card quantidade */
+.quantidade-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: rgba(39, 147, 255, 0.05);
+    border-radius: 8px;
 }
 
 /* Lista de Itens */
+.lista-itens {
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+}
 
 .items-box {
-    max-height: 600px;
+    max-height: auto;
     overflow-y: auto;
-    padding: 2rem;
+    padding: 2rem 1rem;
     border: 1px solid var(--borda);
     border-radius: 12px;
     background: #ffff;
     margin-top: 1rem;
+    margin-right: 0;
 }
 
 .items-box>h2 {
