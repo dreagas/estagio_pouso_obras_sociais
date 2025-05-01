@@ -2,6 +2,7 @@
     --azul-principal: #4a90e2;
     --azul-escuro: #357abd;
     --vermelho-destaque: #dc3545;
+    --texto-escuro: #1A3A4D;
     --cinza-claro: #f5f5f5;
     --branco: #ffffff;
     --sombra: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -208,6 +209,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+    grid-auto-rows: 1fr;
 }
 
 .card-admin {
@@ -218,6 +220,8 @@
     border-left: 4px solid var(--azul-principal);
     transition: var(--transicao);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-admin:hover {
@@ -245,9 +249,10 @@
 }
 
 .card-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: space-between;
 }
 
 .card-content p {
@@ -260,17 +265,23 @@
     background: var(--azul-principal);
     color: var(--branco);
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem !important;
     border-radius: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.8rem;
     transition: var(--transicao);
-    width: fit-content;
+    width: 100%;
     font-size: 0.95rem;
     text-decoration: none;
     justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Ajustar ícones nos botões */
+.btn-acao i {
+    font-size: 1.1rem;
 }
 
 .btn-acao:hover {
@@ -279,12 +290,64 @@
 }
 
 /* Destaques Específicos */
+.destaque-perfil {
+    border-left-color: var(--azul-principal);
+}
+
+.destaque-perfil .btn-acao {
+    background: #e74c3c;
+}
+
+.destaque-perfil .btn-acao i {
+    color: white;
+}
+
+.destaque-perfil .btn-acao:hover {
+    background: #c0392b;
+}
+
+.botoes-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn-excluir {
+    background: #e74c3c
+}
+
+.btn-excluir:hover {
+    background: #c0392b
+}
+
+.btn-excluir i {
+    color: #ffffff;
+}
+
+.btn-alterar-senha {
+    background: #3498db !important;
+}
+
+.btn-alterar-senha:hover {
+    background: #2980b9 !important;
+}
+
 .destaque-deposito {
     border-left-color: #2ECC71 !important;
 }
 
+.destaque-deposito i,
+.destaque-deposito h2 {
+    color: #2ECC71;
+}
+
 .destaque-deposito .btn-acao {
     background: #2ECC71;
+}
+
+.destaque-deposito .btn-acao i {
+    color: #ffffff;
 }
 
 .destaque-deposito .btn-acao:hover {
@@ -295,8 +358,17 @@
     border-left-color: #e74c3c !important;
 }
 
+.destaque-farmacia i,
+.destaque-farmacia h2 {
+    color: #e74c3c;
+}
+
 .destaque-farmacia .btn-acao {
     background: #e74c3c;
+}
+
+.destaque-farmacia .btn-acao i {
+    color: #ffffff;
 }
 
 .destaque-farmacia .btn-acao:hover {
