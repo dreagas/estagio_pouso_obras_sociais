@@ -591,3 +591,223 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(39, 147, 255, 0.2);
 }
+
+/* ========== RESPONSIVIDADE OTIMIZADA ========== */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 1.5rem 2rem;
+        padding-bottom: 1rem !important;
+    }
+
+    .lateral-direita {
+        flex: 0 0 180px;
+        position: static !important;
+        top: auto !important;
+    }
+
+    .card-doacoes,
+    .card-quantidade {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .lateral-direita {
+        order: 0;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .75rem;
+    }
+
+    .card-doacoes,
+    .card-quantidade {
+        flex: 1 1 calc(50% - .75rem);
+    }
+}
+
+/* Dispositivos médios (Tablets e Galaxies maiores) */
+@media (max-width: 768px) {
+    .navbar-admin {
+        padding: .75rem;
+    }
+
+    .nav-logo {
+        width: 100px !important;
+    }
+
+    .container {
+        padding: 0 1rem 1rem;
+    }
+
+    .item-detalhes {
+        grid-template-columns: 1fr;
+    }
+
+    .item-info p {
+        flex-wrap: wrap;
+    }
+}
+
+/* Dispositivos específicos: Galaxy S20 Ultra (412px), iPhone 12 (390px) */
+@media (max-width: 420px) {
+    .item-detalhes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .item-info p {
+        flex: 1 1 45%;
+        min-width: 160px;
+        margin: 0.2rem 0;
+    }
+
+    .item-info i {
+        min-width: 20px;
+        text-align: center;
+    }
+}
+
+/* Galaxy A51/71 (412px) e S8+ (360px) */
+@media (max-width: 400px) {
+    html {
+        font-size: 14px;
+    }
+
+    .item-info p {
+        flex: 1 1 100%;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .item-doador,
+    .item-data,
+    .item-contato,
+    .item-quantidade {
+        display: inline-flex;
+        align-items: center;
+        width: auto;
+        margin-right: 1rem;
+    }
+
+    .item-info p:nth-child(4) {
+        flex-basis: 100%;
+    }
+
+    .item-saida {
+        width: 60%;
+    }
+}
+
+/* iPhone 12 (390px) */
+@media (max-width: 390px) {
+    .item-info p {
+        flex-basis: 48%;
+        font-size: 0.85rem;
+    }
+
+    .btn-editar,
+    .btn-deletar {
+        min-width: 100px;
+        padding: 0.6rem !important;
+    }
+
+    .item-saida {
+        width: 55%;
+    }
+}
+
+/* Galaxy S8+ (360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 0.8rem 1rem;
+    }
+
+    .item-info p {
+        flex-basis: 100%;
+        justify-content: flex-start;
+    }
+
+    .item-doador,
+    .item-data {
+        flex-basis: 45%;
+    }
+
+    .item-contato,
+    .item-quantidade {
+        flex-basis: 100%;
+    }
+
+    .btn-group {
+        gap: 0.3rem;
+    }
+}
+
+/* Ajustes específicos para dados em linha */
+@media (max-width: 768px) {
+    .item-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .item-info p {
+        margin: 0;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+
+    .item-info i {
+        margin-right: 0.3rem;
+    }
+}
+
+/* Páginas de formulário (add/edit) */
+@media (max-width: 768px) {
+    .grupo-input-duplo {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .grupo-input {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Layout mobile para campos do formulário */
+@media (max-width: 576px) {
+
+    .navbar-admin {
+        padding: .5rem;
+    }
+
+    .nav-container {
+        gap: .5rem;
+    }
+
+    .logo-container .nav-logo {
+        width: 100px;
+    }
+
+    .nav-voltar-btn {
+        font-size: .9rem;
+    }
+
+    .grupo-input-duplo {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+
+    .grupo-input {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+}
