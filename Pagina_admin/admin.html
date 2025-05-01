@@ -12,20 +12,36 @@
 
 <body class="admin-body">
 
-    <header class="header-estoque">
-        <div class="container-estoque">
-            <h1><i class="fas fa-user-shield"></i> Painel Administrativo</h1>
-            <div class="usuario-info">
-                <span>Nome do funcionário</span>
-                <i class="fas fa-user-circle"></i>
-                <a href="#logout" class="btn-logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
+    <!-- Cabeçalho Admin -->
+    <nav class="navbar-admin">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="assets/pouso_logo.svg" alt="Pouso Obras Sociais" class="nav-logo">
+                <div class="logo-text">
+                    <h1>Painel Administrativo</h1>
+                    <span>Sistema de Gestão Integrada</span>
+                </div>
+            </div>
+
+            <!-- Lado direito -->
+            <div class="nav-direita">
+                <div class="usuario-info">
+                    <div class="dados-usuario">
+                        <span class="usuario-cpf">CPF: 123.456.789-00</span>
+                        <span class="usuario-cargo">Cargo: Gerente de Operações</span>
+                    </div>
+                    <a href="#logout" class="nav-voltar-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sair
+                    </a>
+                </div>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main class="container-admin">
+
         <!-- Seção de Conteúdo Principal -->
         <section class="secao-principal">
             <div class="controle-superior">
@@ -40,6 +56,7 @@
 
             <!-- Cards de Funcionalidades -->
             <div class="grid-funcionalidades">
+
                 <!-- Relatórios -->
                 <article class="card-admin">
                     <div class="card-header">
@@ -47,7 +64,7 @@
                         <h2>Relatórios</h2>
                     </div>
                     <div class="card-content">
-                        <p>Gerar relatórios mensais e anuais de atividades</p>
+                        <p>Gerar relatórios sobre login, depósito ou farmácia</p>
                         <button class="btn-acao">
                             <i class="fas fa-file-export"></i> Gerar
                         </button>
@@ -72,10 +89,10 @@
                 <article class="card-admin">
                     <div class="card-header">
                         <i class="fas fa-users-gear"></i>
-                        <h2>Gestão de Famílias</h2>
+                        <h2>Gestão de Pessoas cadastradas</h2>
                     </div>
                     <div class="card-content">
-                        <p>152 famílias cadastradas</p>
+                        <p>152 usuários cadastrados</p>
                         <button class="btn-acao">
                             <i class="fas fa-search"></i> Consultar
                         </button>
@@ -96,20 +113,6 @@
                     </div>
                 </article>
 
-                <!-- Doações -->
-                <article class="card-admin">
-                    <div class="card-header">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <h2>Histórico de Doações</h2>
-                    </div>
-                    <div class="card-content">
-                        <p>Última doação: 25/06</p>
-                        <button class="btn-acao">
-                            <i class="fas fa-history"></i> Ver Histórico
-                        </button>
-                    </div>
-                </article>
-
                 <!-- Conteúdo do Site -->
                 <article class="card-admin">
                     <div class="card-header">
@@ -123,24 +126,50 @@
                         </button>
                     </div>
                 </article>
+
+                <!-- Controle do Depósito -->
+                <article class="card-admin destaque-deposito">
+                    <div class="card-header">
+                        <i class="fas fa-warehouse"></i>
+                        <h2>Controle do Depósito</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Gerenciamento completo de estoque e mantimentos</p>
+                        <a href="deposito.html" class="btn-acao">
+                            <i class="fas fa-box-open"></i> Acessar Depósito
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Controle Farmacêutico -->
+                <article class="card-admin destaque-farmacia">
+                    <div class="card-header">
+                        <i class="fas fa-prescription-bottle-medical"></i>
+                        <h2>Controle Farmacêutico</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Gestão de medicamentos e insumos médicos</p>
+                        <a href="farmacia.html" class="btn-acao">
+                            <i class="fas fa-pills"></i> Acessar Farmácia
+                        </a>
+                    </div>
+                </article>
             </div>
 
-            <!-- Seção de Ações Rápidas -->
-            <div class="acoes-rapidas">
-                <h3><i class="fas fa-bolt"></i> Ações Rápidas</h3>
-                <div class="grid-acoes">
-                    <button class="btn-rapido">
-                        <i class="fas fa-user-plus"></i> Novo Cadastro
-                    </button>
-                    <button class="btn-rapido">
-                        <i class="fas fa-chart-pie"></i> Estatísticas
-                    </button>
-                </div>
+        </section>
+
+        <!-- Seção de Ações Rápidas -->
+        <div class="acoes-rapidas">
+            <h3><i class="fas fa-bolt"></i> Ações Rápidas</h3>
+            <div class="grid-acoes">
+                <button class="btn-rapido">
+                    <i class="fas fa-user-plus"></i> Novo Cadastro
+                </button>
             </div>
+        </div>
         </section>
     </main>
 
-    <script src="js/admin.js"></script>
 </body>
 
 </html>

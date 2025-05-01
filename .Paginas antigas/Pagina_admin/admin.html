@@ -12,20 +12,29 @@
 
 <body class="admin-body">
 
-    <header class="header-estoque">
-        <div class="container-estoque">
-            <h1><i class="fas fa-user-shield"></i> Painel Administrativo</h1>
+    <!-- Cabeçalho Administrativo -->
+    <header class="header-admin">
+        <div class="container-header">
+            <div class="branding">
+                <img src="assets/pouso_logo.svg" alt="Logo" class="nav-logo">
+                <h1><i class="fas fa-user-shield"></i> Painel Administrativo</h1>
+            </div>
+
             <div class="usuario-info">
-                <span>Nome do funcionário</span>
-                <i class="fas fa-user-circle"></i>
-                <a href="#logout" class="btn-logout">
+                <div class="usuario-detalhes">
+                    <span class="nome-usuario">Maria da Silva</span>
+                    <span class="cargo-usuario">Gerente de Operações</span>
+                </div>
+                <button class="btn-logout">
                     <i class="fas fa-sign-out-alt"></i>
-                </a>
+                    Sair
+                </button>
             </div>
         </div>
     </header>
 
     <main class="container-admin">
+
         <!-- Seção de Conteúdo Principal -->
         <section class="secao-principal">
             <div class="controle-superior">
@@ -123,24 +132,51 @@
                         </button>
                     </div>
                 </article>
+
+
+                <!-- Controle do Depósito -->
+                <article class="card-admin destaque-deposito">
+                    <div class="card-header">
+                        <i class="fas fa-warehouse"></i>
+                        <h2>Controle do Depósito</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Gerenciamento completo de estoque e mantimentos</p>
+                        <a href="deposito.html" class="btn-acao">
+                            <i class="fas fa-box-open"></i> Acessar Depósito
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Controle Farmacêutico -->
+                <article class="card-admin destaque-farmacia">
+                    <div class="card-header">
+                        <i class="fas fa-prescription-bottle-medical"></i>
+                        <h2>Controle Farmacêutico</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Gestão de medicamentos e insumos médicos</p>
+                        <a href="farmacia.html" class="btn-acao">
+                            <i class="fas fa-pills"></i> Acessar Farmácia
+                        </a>
+                    </div>
+                </article>
             </div>
 
-            <!-- Seção de Ações Rápidas -->
-            <div class="acoes-rapidas">
-                <h3><i class="fas fa-bolt"></i> Ações Rápidas</h3>
-                <div class="grid-acoes">
-                    <button class="btn-rapido">
-                        <i class="fas fa-user-plus"></i> Novo Cadastro
-                    </button>
-                    <button class="btn-rapido">
-                        <i class="fas fa-chart-pie"></i> Estatísticas
-                    </button>
-                </div>
+        </section>
+
+        <!-- Seção de Ações Rápidas -->
+        <div class="acoes-rapidas">
+            <h3><i class="fas fa-bolt"></i> Ações Rápidas</h3>
+            <div class="grid-acoes">
+                <button class="btn-rapido">
+                    <i class="fas fa-user-plus"></i> Novo Cadastro
+                </button>
             </div>
+        </div>
         </section>
     </main>
 
-    <script src="js/admin.js"></script>
 </body>
 
 </html>
