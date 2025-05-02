@@ -54,12 +54,28 @@ body {
 }
 
 .nav-voltar-btn {
+    position: relative;
     font-weight: 600;
+    font-size: 1.125rem;
     color: var(--texto-escuro);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    padding-bottom: .25rem;
+    margin-left: auto;
+}
+
+.nav-voltar-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    transition: width 0.3s ease-out;
+}
+
+.nav-voltar-btn:hover::after {
+    width: 100%;
 }
 
 /* Container Principal */
