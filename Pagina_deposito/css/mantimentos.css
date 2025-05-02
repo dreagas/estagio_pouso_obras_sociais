@@ -122,7 +122,7 @@ body {
     gap: 1rem;
     margin-bottom: 2rem;
     align-items: center;
-    justify-conten: space-between;
+    justify-content: space-between;
 }
 
 .barra-pesquisa {
