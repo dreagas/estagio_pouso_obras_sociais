@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente - Gestão Farmacêutica Pouso</title>
+    <link rel="stylesheet" href="/css/formPacientes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="barra-navegacao-admin">
+        <div class="container-navegacao-topo">
+            <div class="area-logo">
+                <img src="/assets/pouso_logo.svg" alt="Pouso Obras Sociais" class="logo-navegacao">
+                <div class="container-texto-logo">
+                    <span class="texto-principal-logo">Gestão Farmacêutica</span>
+                    <span class="subtexto-logo">Sistema de Controle Farmacêutico</span>
+                </div>
+            </div>
+
+            <nav class="navegacao-principal">
+                <a href="#" class="botao-navegacao-principal"> <i class="fa-solid fa-pills"></i> Fármacos
+                </a>
+                <a href="pacientes.html" class="botao-navegacao-principal ativo"> <i class="fa-solid fa-users"></i>
+                    Pacientes
+                </a>
+                <a href="#" class="botao-navegacao-principal"> <i class="fa-solid fa-suitcase-medical"></i> Equipamentos
+                </a>
+                <a href="#" class="botao-navegacao-principal"> <i class="fa-solid fa-mask-face"></i> EPIs
+                </a>
+            </nav>
+
+            <div class="controles-usuario">
+                <div class="info-curta-usuario">
+                    <span class="label-info-usuario">CPF:</span>
+                    <span class="valor-info-usuario">123.456.789-00</span> <span
+                        class="label-info-usuario">Nível:</span>
+                    <span class="valor-info-usuario">3</span>
+                </div>
+                <a href="pacientes.html" class="botao-retorno-painel-admin" title="Voltar para Lista de Pacientes"> <i
+                        class="fas fa-arrow-left"></i>
+                    <span>Voltar para Lista</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-principal-formulario">
+        <section class="cabecalho-formulario-paciente">
+            <h1 class="titulo-pagina-formulario"><i class="fa-solid fa-user-plus"></i> Cadastro de Novo Paciente</h1>
+        </section>
+
+        <form action="/admin/pacientes/salvar" method="POST" class="formulario-cadastro-paciente" id="formNovoPaciente">
+            <fieldset class="grupo-fieldset">
+                <legend class="legenda-fieldset"><i class="fa-solid fa-id-card-clip"></i> Informações Pessoais</legend>
+                <div class="linha-formulario">
+                    <div class="campo-formulario metades">
+                        <label for="nomePaciente" class="label-campo">Nome Completo <span
+                                class="campo-obrigatorio">*</span></label>
+                        <input type="text" id="nomePaciente" name="nome" class="input-campo"
+                            placeholder="Nome completo do paciente" required>
+                    </div>
+                    <div class="campo-formulario metades">
+                        <label for="cpfPaciente" class="label-campo">CPF <span
+                                class="campo-obrigatorio">*</span></label>
+                        <input type="text" id="cpfPaciente" name="cpf" class="input-campo" placeholder="000.000.000-00"
+                            required>
+                    </div>
+                </div>
+                <div class="linha-formulario">
+                    <div class="campo-formulario metades">
+                        <label for="dataNascimentoPaciente" class="label-campo">Data de Nascimento <span
+                                class="campo-obrigatorio">*</span></label>
+                        <input type="date" id="dataNascimentoPaciente" name="dataNasc" class="input-campo" required>
+                    </div>
+                    <div class="campo-formulario metades">
+                        <label for="telefonePaciente" class="label-campo">Telefone</label>
+                        <input type="tel" id="telefonePaciente" name="telefone" class="input-campo"
+                            placeholder="(00) 00000-0000">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="grupo-fieldset">
+                <legend class="legenda-fieldset"><i class="fa-solid fa-map-location-dot"></i> Endereço</legend>
+                <div class="campo-formulario">
+                    <label for="enderecoPaciente" class="label-campo">Endereço Completo</label>
+                    <textarea id="enderecoPaciente" name="endereco" class="input-campo textarea-campo" rows="3"
+                        placeholder="Rua, Número, Complemento, Bairro, Cidade - UF, CEP"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="grupo-fieldset">
+                <legend class="legenda-fieldset"><i class="fa-solid fa-user-shield"></i> Responsável pela Retirada
+                </legend>
+                <div class="campo-formulario">
+                    <label for="responsavelRetiradaPaciente" class="label-campo">Nome do Responsável (se
+                        aplicável)</label>
+                    <input type="text" id="responsavelRetiradaPaciente" name="responsavelRetirada" class="input-campo"
+                        placeholder="Nome do responsável pela retirada dos medicamentos">
+                </div>
+            </fieldset>
+
+            <div class="acoes-formulario">
+                <button type="submit" class="btn-principal-formulario btn-salvar">
+                    <i class="fa-solid fa-save"></i> Salvar Paciente
+                </button>
+                <button type="reset" class="btn-secundario-formulario btn-limpar">
+                    <i class="fa-solid fa-eraser"></i> Limpar Campos
+                </button>
+                <a href="pacientes.html" class="btn-secundario-formulario btn-cancelar-link">
+                    <i class="fa-solid fa-times-circle"></i> Cancelar
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <footer class="rodape-container-pacientes"> <a class="rodape-voltar-pacientes" href="pacientes.html"
+            title="Voltar para Lista de Pacientes">
+            <i class="fas fa-arrow-left"></i>
+            <span>Voltar</span>
+        </a>
+        <div class="rodape-icones-pacientes">
+            <a href="#" title="Fármacos"> <i class="fa-solid fa-pills"></i>
+                <span>Fármacos</span>
+            </a>
+            <a href="#" title="Equipamentos"> <i class="fa-solid fa-suitcase-medical"></i>
+                <span>Equipamentos</span>
+            </a>
+            <a href="#" title="EPIs"> <i class="fa-solid fa-mask-face"></i>
+                <span>EPIs</span>
+            </a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

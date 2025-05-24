@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes - Gestão Farmacêutica Pouso</title>
+    <link rel="stylesheet" href="/css/pacientes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="barra-navegacao-admin">
+        <div class="container-navegacao-topo">
+            <div class="area-logo">
+                <img src="/assets/pouso_logo.svg" alt="Pouso Obras Sociais" class="logo-navegacao">
+                <div class="container-texto-logo">
+                    <span class="texto-principal-logo">Gestão Farmacêutica</span>
+                    <span class="subtexto-logo">Sistema de Controle Farmacêutico</span>
+                </div>
+            </div>
+
+            <nav class="navegacao-principal">
+                <a href="#" class="botao-navegacao-principal">
+                    <i class="fa-solid fa-pills"></i> Fármacos
+                </a>
+                <a href="pacientes.html" class="botao-navegacao-principal ativo">
+                    <i class="fa-solid fa-users"></i> Pacientes
+                </a>
+                <a href="#" class="botao-navegacao-principal">
+                    <i class="fa-solid fa-suitcase-medical"></i> Equipamentos
+                </a>
+                <a href="#" class="botao-navegacao-principal">
+                    <i class="fa-solid fa-mask-face"></i> EPIs
+                </a>
+            </nav>
+
+            <div class="controles-usuario">
+                <div class="info-curta-usuario">
+                    <span class="label-info-usuario">CPF:</span>
+                    <span class="valor-info-usuario">123.456.789-00</span>
+                    <span class="label-info-usuario">Nível:</span>
+                    <span class="valor-info-usuario">3</span>
+                </div>
+                <a href="/admin" class="botao-retorno-painel-admin" title="Voltar ao Painel Administrativo">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar ao Painel Administrativo</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-principal-pacientes">
+        <section class="controles-superiores-pacientes">
+            <div class="wrapper-campo-busca">
+                <input type="text" id="inputBuscaPaciente" placeholder="Pesquisar Nome ou CPF...">
+                <button type="button" class="btn-busca-paciente" aria-label="Buscar Paciente"><i
+                        class="fas fa-search"></i></button>
+            </div>
+            <div class="wrapper-filtros">
+                <div class="filtro-dropdown">
+                    <label for="ordenarPorPaciente" class="sr-only">Ordenar por</label>
+                    <select id="ordenarPorPaciente" name="ordenarPorPacienteAria">
+                        <option value="nome_asc">Nome (A-Z)</option>
+                        <option value="nome_desc">Nome (Z-A)</option>
+                        <option value="recentes">Mais Recentes</option>
+                        <option value="antigos">Mais Antigos</option>
+                    </select>
+                </div>
+                <div class="filtro-dropdown">
+                    <label for="filtroData" class="sr-only">Filtrar por data de cadastro</label>
+                    <input type="date" id="filtroData" name="filtroData" class="input-data-filtro">
+                    <button type="button" class="btn-aplicar-data-filtro" aria-label="Aplicar filtro de data"><i
+                            class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+            <div class="acoes-principais-pacientes">
+                <button class="btn-acao-primario btn-novo-paciente" onclick="window.location.href='formPacientes.html'">
+                    <i class="fa-solid fa-user-plus"></i> Novo
+                </button>
+                <button class="btn-acao-secundario btn-relatorio-paciente"
+                    onclick="alert('Funcionalidade de Relatório em desenvolvimento.');">
+                    <i class="fa-solid fa-file-alt"></i> Relatório
+                </button>
+            </div>
+        </section>
+
+        <section class="area-listagem-pacientes">
+            <header class="cabecalho-lista-pacientes">
+                <div class="coluna-paciente nome">Nome do Paciente</div>
+                <div class="coluna-paciente cpf">CPF</div>
+                <div class="coluna-paciente data-nasc">Data Nasc.</div>
+                <div class="coluna-paciente telefone">Telefone</div>
+                <div class="coluna-paciente responsavel">Responsável Retirada</div>
+                <div class="coluna-paciente acoes">Ações</div>
+            </header>
+            <div class="corpo-lista-pacientes">
+                <article class="item-paciente-lista" data-id-paciente="1">
+                    <div class="coluna-paciente nome">João Carlos Silva Sauro</div>
+                    <div class="coluna-paciente cpf">111.222.333-44</div>
+                    <div class="coluna-paciente data-nasc">10/05/1985</div>
+                    <div class="coluna-paciente telefone">(98) 98877-6655</div>
+                    <div class="coluna-paciente responsavel">Maria Silva</div>
+                    <div class="coluna-paciente acoes">
+                        <a href="formPacientes.html?id=1" class="btn-acao-item editar" title="Editar/Ver Detalhes">
+                            <i class="fa-solid fa-pencil-alt"></i>
+                        </a>
+                        <button class="btn-acao-item visualizar" title="Visualizar Prontuário">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                        <button class="btn-acao-item remover" title="Remover Paciente"
+                            onclick="abrirModalRemocao('1', 'João Carlos Silva Sauro')">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-paciente-lista" data-id-paciente="2">
+                    <div class="coluna-paciente nome">Ana Clara de Souza Lima</div>
+                    <div class="coluna-paciente cpf">222.333.444-55</div>
+                    <div class="coluna-paciente data-nasc">22/11/1990</div>
+                    <div class="coluna-paciente telefone">(98) 91122-3344</div>
+                    <div class="coluna-paciente responsavel">Ela Mesma</div>
+                    <div class="coluna-paciente acoes">
+                        <a href="formPacientes.html?id=2" class="btn-acao-item editar" title="Editar/Ver Detalhes">
+                            <i class="fa-solid fa-pencil-alt"></i>
+                        </a>
+                        <button class="btn-acao-item visualizar" title="Visualizar Prontuário">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                        <button class="btn-acao-item remover" title="Remover Paciente"
+                            onclick="abrirModalRemocao('2', 'Ana Clara de Souza Lima')">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape-container-pacientes">
+        <a class="rodape-voltar-pacientes" href="/admin" title="Voltar ao Painel Administrativo">
+            <i class="fas fa-arrow-left"></i>
+            <span>Voltar</span>
+        </a>
+        <div class="rodape-icones-pacientes">
+            <a href="#" title="Fármacos">
+                <i class="fa-solid fa-pills"></i>
+                <span>Fármacos</span>
+            </a>
+            <a href="#" title="Equipamentos">
+                <i class="fa-solid fa-suitcase-medical"></i>
+                <span>Equipamentos</span>
+            </a>
+            <a href="#" title="EPIs">
+                <i class="fa-solid fa-mask-face"></i>
+                <span>EPIs</span>
+            </a>
+        </div>
+    </footer>
+
+    <div id="modalConfirmacaoRemocao" class="modal-remocao-paciente oculto">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharModalRemocao()">&times;</span>
+            <h2>Confirmar Remoção</h2>
+            <p>Você tem certeza que deseja remover o paciente <strong id="nomePacienteModal"></strong>?</p>
+            <p>Esta ação não poderá ser desfeita.</p>
+            <div class="campo-form-modal">
+                <label for="senhaAdminModal">Senha do Administrador:</label>
+                <input type="password" id="senhaAdminModal" name="senhaAdminModal"
+                    placeholder="Digite a senha para confirmar">
+            </div>
+            <div class="botoes-modal">
+                <button type="button" class="btn-modal btn-cancelar" onclick="fecharModalRemocao()">Cancelar</button>
+                <button type="button" class="btn-modal btn-confirmar-remocao"
+                    onclick="confirmarRemocaoPaciente()">Remover Paciente</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funções JS básicas para o modal (idealmente em arquivo .js separado)
+        const modal = document.getElementById('modalConfirmacaoRemocao');
+        const nomePacienteModalSpan = document.getElementById('nomePacienteModal');
+        let idPacienteParaRemover = null;
+
+        function abrirModalRemocao(idPaciente, nomePaciente) {
+            idPacienteParaRemover = idPaciente;
+            nomePacienteModalSpan.textContent = nomePaciente;
+            modal.classList.remove('oculto');
+        }
+
+        function fecharModalRemocao() {
+            idPacienteParaRemover = null;
+            document.getElementById('senhaAdminModal').value = ''; // Limpa senha
+            modal.classList.add('oculto');
+        }
+
+        function confirmarRemocaoPaciente() {
+            const senhaAdmin = document.getElementById('senhaAdminModal').value;
+            if (!senhaAdmin) {
+                alert('Por favor, insira a senha do administrador para confirmar a remoção.');
+                return;
+            }
+            // Aqui você faria a lógica de verificação da senha e a chamada para o backend para remover o paciente
+            // Exemplo:
+            // fetch(`/admin/pacientes/remover/${idPacienteParaRemover}`, { method: 'POST', body: JSON.stringify({ senha: senhaAdmin }), headers: {'Content-Type': 'application/json'} })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if(data.success) {
+            //         alert('Paciente removido com sucesso!');
+            //         // Remover o item da lista na interface ou recarregar a página
+            //         document.querySelector(`article[data-id-paciente="${idPacienteParaRemover}"]`).remove();
+            //         fecharModalRemocao();
+            //     } else {
+            //         alert('Erro ao remover paciente: ' + data.message);
+            //     }
+            // })
+            // .catch(error => {
+            //     console.error('Erro:', error);
+            //     alert('Ocorreu um erro ao tentar remover o paciente.');
+            // });
+
+            // Por enquanto, apenas simula a remoção e fecha o modal
+            alert(`Simulando remoção do paciente ID: ${idPacienteParaRemover} com senha: ${senhaAdmin}`);
+            // Aqui você precisaria remover o elemento da DOM após a confirmação do backend
+            const itemParaRemover = document.querySelector(`article[data-id-paciente="${idPacienteParaRemover}"]`);
+            if (itemParaRemover) {
+                itemParaRemover.remove();
+            }
+            fecharModalRemocao();
+        }
+
+        // Fechar modal clicando fora dele (opcional)
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                fecharModalRemocao();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
