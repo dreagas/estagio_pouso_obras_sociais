@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Materiais EPI</title>
+    <link rel="stylesheet" href="css/epis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar-admin">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/pouso_logo.svg" alt="Logo Pouso Obras Sociais" class="nav-logo">
+                <div class="logo-text">
+                    <span class="span-text">Gestão de EPIs</span> <span>Farmácia</span>
+                </div>
+            </div>
+
+            <div class="middle-section-nav">
+                <a href="medicamentos.html" class="middle-section-nav-button">
+                    <i class="fas fa-pills"></i> Medicamentos
+                </a>
+                <a href="pacientes.html" class="middle-section-nav-button">
+                    <i class="fas fa-users"></i> Pacientes
+                </a>
+                <a href="materiais_epi.html" class="middle-section-nav-button active"> <i
+                        class="fas fa-helmet-safety"></i> EPIs
+                </a>
+            </div>
+
+            <div class="nav-direita">
+                <div class="usuario-info">
+                    <div class="dados-usuario">
+                        <span class="usuario"><i class="fas fa-user-shield"></i> Nome Admin Exemplo</span>
+                        <span class="usuario"><i class="fas fa-id-card"></i> CPF: 123.456.789-00</span>
+                        <span class="usuario"><i class="fas fa-layer-group"></i> Nível: Farmácia</span>
+                    </div>
+                </div>
+                <a href="../admin_dashboard.html" class="nav-voltar-btn-novo">
+                    <i class="fas fa-arrow-circle-left"></i>
+                    <span>Voltar ao Painel</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="section-principal-epi">
+        <div class="search-container-epi">
+            <form action="#" method="GET" class="search-bar-form-epi">
+                <div class="search-bar-container-epi">
+                    <input type="text" name="search" placeholder="Buscar material EPI por nome..."
+                        class="search-input-epi" value="">
+                    <button type="submit" class="search-button-epi"><i class="fas fa-search"></i></button>
+                    <a href="#" class="limparPesquisa-epi">Limpar Pesquisa</a>
+                </div>
+                <div class="order-container-epi">
+                    <span class="order-span-epi">Ordenar por:</span>
+                    <button type="submit" name="order" value="new" class="order-button-epi active">Mais
+                        Recentes</button>
+                    <button type="submit" name="order" value="old" class="order-button-epi">Mais Antigos</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="farm-title-content-epi">
+            <h2 class="farm-title-epi"><i class="fas fa-helmet-safety"></i> Materiais de Proteção Individual (EPI)</h2>
+            <a href="add_material_epi.html" class="button-novo-epi">
+                <i class="fas fa-plus-circle"></i> Adicionar Novo Material
+            </a>
+        </div>
+
+        <div class="table-responsive-epi">
+            <table class="table-epi">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-signature"></i> Nome do Material</th>
+                        <th><i class="fas fa-tags"></i> Categoria</th>
+                        <th><i class="fas fa-boxes-stacked"></i> Quantidade</th>
+                        <th><i class="fas fa-calendar-alt"></i> Data de Cadastro</th>
+                        <th><i class="fas fa-cogs"></i> Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nome">Máscara Cirúrgica Descartável</td>
+                        <td data-label="Categoria">Máscaras</td>
+                        <td data-label="Quantidade">150</td>
+                        <td data-label="Data Cadastro">25/05/2025</td>
+                        <td data-label="Ações" class="actions-epi">
+                            <a href="edit_material_epi.html?id=1" class="action-btn-epi edit-epi"><i
+                                    class="fas fa-edit"></i> Editar</a>
+                            <button type="button" class="action-btn-epi saida-epi"
+                                onclick="openSaidaModal('1', 'Máscara Cirúrgica Descartável', 150)"><i
+                                    class="fas fa-minus-circle"></i> Saída</button>
+                            <form action="#" method="POST" style="display:inline;"
+                                onsubmit="return confirm('Tem certeza que deseja excluir este material?');">
+                                <button type="submit" class="action-btn-epi delete-epi"><i class="fas fa-trash-alt"></i>
+                                    Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nome">Luvas de Procedimento (Caixa)</td>
+                        <td data-label="Categoria">Luvas</td>
+                        <td data-label="Quantidade">75</td>
+                        <td data-label="Data Cadastro">24/05/2025</td>
+                        <td data-label="Ações" class="actions-epi">
+                            <a href="edit_material_epi.html?id=2" class="action-btn-epi edit-epi"><i
+                                    class="fas fa-edit"></i> Editar</a>
+                            <button type="button" class="action-btn-epi saida-epi"
+                                onclick="openSaidaModal('2', 'Luvas de Procedimento (Caixa)', 75)"><i
+                                    class="fas fa-minus-circle"></i> Saída</button>
+                            <form action="#" method="POST" style="display:inline;"
+                                onsubmit="return confirm('Tem certeza que deseja excluir este material?');">
+                                <button type="submit" class="action-btn-epi delete-epi"><i class="fas fa-trash-alt"></i>
+                                    Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nome">Avental Descartável TNT</td>
+                        <td data-label="Categoria">Aventais</td>
+                        <td data-label="Quantidade">200</td>
+                        <td data-label="Data Cadastro">23/05/2025</td>
+                        <td data-label="Ações" class="actions-epi">
+                            <a href="edit_material_epi.html?id=3" class="action-btn-epi edit-epi"><i
+                                    class="fas fa-edit"></i> Editar</a>
+                            <button type="button" class="action-btn-epi saida-epi"
+                                onclick="openSaidaModal('3', 'Avental Descartável TNT', 200)"><i
+                                    class="fas fa-minus-circle"></i> Saída</button>
+                            <form action="#" method="POST" style="display:inline;"
+                                onsubmit="return confirm('Tem certeza que deseja excluir este material?');">
+                                <button type="submit" class="action-btn-epi delete-epi"><i class="fas fa-trash-alt"></i>
+                                    Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="saidaModal" class="modal-epi">
+        <div class="modal-content-epi">
+            <span class="close-btn-epi" onclick="closeSaidaModal()">&times;</span>
+            <h3>Registrar Saída de Material EPI</h3>
+            <p>Material: <strong id="modalMaterialNome"></strong></p>
+            <p>Quantidade em Estoque: <strong id="modalMaterialEstoque"></strong></p>
+            <form id="formSaidaMaterial" method="POST" action="#">
+                <div class="form-group-epi">
+                    <label for="quantidadeSaida">Quantidade para Saída:</label>
+                    <input type="number" id="quantidadeSaida" name="quantidadeSaida" min="1" required
+                        class="form-control-epi">
+                </div>
+                <div class="modal-actions-epi">
+                    <button type="submit" class="btn-confirm-saida-epi"><i class="fas fa-check-circle"></i> Confirmar
+                        Saída</button>
+                    <button type="button" class="btn-cancel-saida-epi" onclick="closeSaidaModal()"><i
+                            class="fas fa-times-circle"></i> Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Script para o modal de saída
+        function openSaidaModal(id, nome, estoque) {
+            document.getElementById('modalMaterialNome').innerText = nome;
+            document.getElementById('modalMaterialEstoque').innerText = estoque;
+            const qtdSaidaInput = document.getElementById('quantidadeSaida');
+            qtdSaidaInput.max = estoque;
+            qtdSaidaInput.value = 1; // Valor inicial
+            // document.getElementById('formSaidaMaterial').action = '/admin/farmacia/epi/saida/' + id; // Comentado para HTML estático
+            document.getElementById('saidaModal').style.display = 'block';
+        }
+
+        function closeSaidaModal() {
+            document.getElementById('saidaModal').style.display = 'none';
+            document.getElementById('formSaidaMaterial').reset();
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('saidaModal');
+            if (event.target == modal) {
+                closeSaidaModal();
+            }
+        }
+
+        // Simulação de esconder mensagem flash após um tempo
+        setTimeout(() => {
+            const feedbackMessages = document.querySelectorAll('.mensagem-feedback');
+            feedbackMessages.forEach(msg => {
+                msg.classList.add('hidden');
+            });
+        }, 4000);
+    </script>
+</body>
+
+</html>

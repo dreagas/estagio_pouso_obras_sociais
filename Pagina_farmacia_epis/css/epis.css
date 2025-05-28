@@ -1,0 +1,859 @@
+/* public/css/epis.css */
+
+/* :root Variables */
+:root {
+    --azul-principal: #248cf4;
+    --azul-escuro: #1b6cb2;
+    --vermelho-destaque: #dc3545;
+    --vermelho-escuro: #b02a37;
+    --verde-sucesso: #28a745;
+    --verde-escuro: #1e7e34;
+    --amarelo-aviso: #ffc107;
+    --amarelo-escuro: #d39e00;
+    --texto-escuro: #1A3A4D;
+    --texto-claro: #f8f9fa;
+    --fundo-claro: #ffffff;
+    --fundo-cinza: #C8E3FF;
+    --borda-cor: #dee2e6;
+    --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transicao: all 0.3s ease;
+    --fonte-principal: 'Montserrat', sans-serif;
+}
+
+/* Global Resets & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--fundo-cinza);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--azul-principal);
+}
+
+a:hover {
+    color: var(--azul-escuro);
+}
+
+/* Navbar Admin */
+.navbar-admin {
+    background: var(--fundo-claro);
+    padding: 1rem 2rem;
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-logo {
+    width: 100px;
+    height: auto;
+}
+
+.logo-text .span-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--texto-escuro);
+}
+
+.logo-text span:not(.span-text) {
+    font-size: 0.9rem;
+    color: var(--azul-principal);
+}
+
+.middle-section-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.middle-section-nav-button {
+    background-color: #f0f0f0;
+    color: var(--texto-escuro);
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-weight: 600;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border: 1px solid transparent;
+    transition: var(--transicao);
+}
+
+.middle-section-nav-button:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+.middle-section-nav-button.active {
+    background-color: var(--azul-principal);
+    color: var(--fundo-claro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-direita {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dados-usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    color: var(--texto-escuro);
+}
+
+.dados-usuario .usuario {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.dados-usuario .usuario i {
+    color: var(--azul-principal);
+}
+
+.nav-voltar-btn-novo {
+    color: var(--texto-escuro);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    background-color: #e9ecef;
+    transition: var(--transicao);
+}
+
+.nav-voltar-btn-novo:hover {
+    background-color: var(--azul-principal);
+    color: var(--fundo-claro);
+}
+
+.nav-voltar-btn-novo i {
+    transition: var(--transicao);
+}
+
+.nav-voltar-btn-novo:hover i {
+    color: var(--fundo-claro);
+}
+
+/* Mensagem Feedback (Simulação Flash) */
+.mensagem-feedback {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    padding: 1rem 1.5rem;
+    background-color: var(--vermelho-destaque);
+    color: var(--fundo-claro);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    font-weight: 500;
+    opacity: 1;
+    transition: opacity 0.5s ease-out 3.5s;
+}
+
+.mensagem-feedback.success {
+    background-color: var(--verde-sucesso);
+}
+
+.mensagem-feedback.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Container Principal EPI */
+.section-principal-epi {
+    background-color: var(--fundo-claro);
+    width: 95%;
+    max-width: 1600px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--sombra);
+}
+
+/* Barra de Pesquisa e Ordenação EPI */
+.search-container-epi {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--borda-cor);
+}
+
+.search-bar-form-epi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-bar-container-epi {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.search-input-epi {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    flex-grow: 1;
+    outline-color: var(--azul-principal);
+}
+
+.search-button-epi,
+.limparPesquisa-epi {
+    border: none;
+    background-color: var(--azul-principal);
+    color: var(--fundo-claro);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transicao);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.limparPesquisa-epi {
+    background-color: var(--texto-escuro);
+}
+
+.search-button-epi:hover {
+    background-color: var(--azul-escuro);
+}
+
+.limparPesquisa-epi:hover {
+    background-color: #5a6268;
+}
+
+.order-container-epi {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.order-span-epi {
+    font-weight: 500;
+    color: var(--texto-escuro);
+    white-space: nowrap;
+}
+
+.order-button-epi {
+    background-color: #e9ecef;
+    color: var(--texto-escuro);
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transicao);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.order-button-epi.active,
+.order-button-epi:hover {
+    background-color: var(--azul-principal);
+    color: var(--fundo-claro);
+}
+
+/* Título da Seção EPI e Botão Novo */
+.farm-title-content-epi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.farm-title-epi {
+    color: var(--azul-principal);
+    font-size: 1.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.button-novo-epi {
+    background-color: var(--verde-sucesso);
+    color: var(--fundo-claro);
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transicao);
+    border: none;
+}
+
+.button-novo-epi:hover {
+    background-color: var(--verde-escuro);
+    transform: translateY(-2px);
+}
+
+/* Tabela de EPIs */
+.table-responsive-epi {
+    overflow-x: auto;
+}
+
+.table-epi {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.table-epi th,
+.table-epi td {
+    padding: 0.8rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--borda-cor);
+    vertical-align: middle;
+}
+
+.table-epi th {
+    background-color: var(--fundo-claro);
+    font-weight: 600;
+    color: var(--texto-escuro);
+    border-top: 1px solid var(--borda-cor);
+}
+
+.table-epi th i {
+    margin-right: 0.5rem;
+    color: var(--azul-principal);
+}
+
+.table-epi tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+.actions-epi {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.action-btn-epi {
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: var(--fundo-claro);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    transition: var(--transicao);
+    white-space: nowrap;
+}
+
+.action-btn-epi.edit-epi {
+    background-color: var(--azul-principal);
+}
+
+.action-btn-epi.edit-epi:hover {
+    background-color: var(--azul-escuro);
+}
+
+.action-btn-epi.saida-epi {
+    background-color: var(--amarelo-aviso);
+    color: var(--texto-escuro);
+}
+
+.action-btn-epi.saida-epi:hover {
+    background-color: var(--amarelo-escuro);
+}
+
+.action-btn-epi.delete-epi {
+    background-color: var(--vermelho-destaque);
+}
+
+.action-btn-epi.delete-epi:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+.no-data-epi {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+.no-data-epi i {
+    margin-right: 0.5rem;
+    color: var(--azul-principal);
+}
+
+
+/* Formulários EPI (Adicionar/Editar) */
+.form-container-epi {
+    background-color: var(--fundo-claro);
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+}
+
+.form-epi .form-title-epi {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: var(--texto-escuro);
+}
+
+.form-epi .form-title-epi i {
+    color: var(--azul-principal);
+    margin-right: 0.5rem;
+}
+
+.form-group-epi {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-epi label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--texto-escuro);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group-epi label i {
+    color: var(--azul-principal);
+    width: 16px;
+    text-align: center;
+}
+
+.form-control-epi {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-control-epi:focus {
+    border-color: var(--azul-principal);
+    box-shadow: 0 0 0 0.2rem rgba(36, 140, 244, 0.25);
+}
+
+input[type="date"].form-control-epi {
+    appearance: none;
+    padding: 0.7rem 1rem;
+}
+
+
+.form-actions-epi {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-submit-epi,
+.btn-cancel-epi {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transicao);
+    border: none;
+}
+
+.btn-submit-epi {
+    background-color: var(--verde-sucesso);
+    color: var(--fundo-claro);
+}
+
+.btn-submit-epi:hover {
+    background-color: var(--verde-escuro);
+}
+
+.btn-cancel-epi {
+    background-color: #6c757d;
+    color: var(--fundo-claro);
+}
+
+.btn-cancel-epi:hover {
+    background-color: #5a6268;
+}
+
+
+/* Modal de Saída EPI */
+.modal-epi {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content-epi {
+    background-color: var(--fundo-claro);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--sombra);
+    position: relative;
+}
+
+.close-btn-epi {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-btn-epi:hover,
+.close-btn-epi:focus {
+    color: var(--texto-escuro);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content-epi h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--azul-principal);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.modal-content-epi p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: var(--texto-escuro);
+}
+
+.modal-content-epi p strong {
+    font-weight: 600;
+    color: var(--azul-escuro);
+}
+
+.modal-actions-epi {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn-confirm-saida-epi,
+.btn-cancel-saida-epi {
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+}
+
+.btn-confirm-saida-epi {
+    background-color: var(--verde-sucesso);
+    color: var(--fundo-claro);
+}
+
+.btn-confirm-saida-epi:hover {
+    background-color: var(--verde-escuro);
+}
+
+.btn-cancel-saida-epi {
+    background-color: var(--vermelho-destaque);
+    color: var(--fundo-claro);
+}
+
+.btn-cancel-saida-epi:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+
+/* Responsividade Adicional */
+@media (max-width: 1150px) {
+    .middle-section-nav {
+        order: 2;
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+        order: 1;
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-direita {
+        width: 100%;
+        justify-content: center;
+        order: 3;
+        margin-top: 0.5rem;
+    }
+
+    .middle-section-nav-button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        flex-grow: 1;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-admin {
+        padding: 0.8rem 1rem;
+    }
+
+    .usuario-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dados-usuario {
+        align-items: center;
+    }
+
+    .search-bar-form-epi {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar-container-epi {
+        width: 100%;
+    }
+
+    .order-container-epi {
+        margin-top: 1rem;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .order-button-epi {
+        flex-grow: 1;
+    }
+
+    .farm-title-content-epi {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .button-novo-epi {
+        align-self: stretch;
+        justify-content: center;
+    }
+
+    .table-epi thead {
+        display: none;
+    }
+
+    .table-epi,
+    .table-epi tbody,
+    .table-epi tr,
+    .table-epi td {
+        display: block;
+        width: 100%;
+    }
+
+    .table-epi tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--borda-cor);
+        border-radius: 6px;
+        padding: 1rem;
+        background-color: var(--fundo-claro);
+    }
+
+    .table-epi td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: none;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .table-epi td:last-child {
+        padding-bottom: 0;
+    }
+
+    .table-epi td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap;
+        color: var(--azul-principal);
+    }
+
+    .actions-epi {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        padding-left: 0;
+    }
+
+    .action-btn-epi {
+        flex-basis: calc(50% - 0.25rem);
+        margin-bottom: 0.5rem;
+        justify-content: center;
+    }
+
+    .action-btn-epi:last-child {
+        margin-bottom: 0;
+    }
+
+    .form-container-epi {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .form-actions-epi {
+        flex-direction: column;
+    }
+
+    .btn-submit-epi,
+    .btn-cancel-epi {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal-content-epi {
+        width: 95%;
+        margin-top: 20%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text .span-text {
+        font-size: 1rem;
+    }
+
+    .logo-text span:not(.span-text) {
+        font-size: 0.8rem;
+    }
+
+    .dados-usuario {
+        font-size: 0.75rem;
+    }
+
+    .nav-voltar-btn-novo {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .middle-section-nav-button {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    .middle-section-nav-button i {
+        display: none;
+        /* Oculta ícones dos botões do meio em telas muito pequenas */
+    }
+
+
+    .farm-title-epi {
+        font-size: 1.4rem;
+    }
+
+    .button-novo-epi {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .table-epi td {
+        padding-left: 40%;
+    }
+
+    .table-epi td::before {
+        width: calc(40% - 15px);
+        font-size: 0.85rem;
+    }
+
+    .action-btn-epi {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+        flex-basis: 100%;
+    }
+
+    .form-group-epi label i {
+        display: none;
+    }
+}
